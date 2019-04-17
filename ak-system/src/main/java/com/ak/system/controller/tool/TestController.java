@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.tool;
+package com.ak.system.controller.tool;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.monitor;
+package com.ak.system.controller.tool;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -7,20 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ak.common.core.controller.BaseController;
 
 /**
- * druid 监控
+ * swagger 接口
  * 
  * @author ak
  */
 @Controller
-@RequestMapping("/monitor/data")
-public class DruidController extends BaseController
+@RequestMapping("/tool/swagger")
+public class SwaggerController extends BaseController
 {
-    private String prefix = "/monitor/druid";
-
-    @RequiresPermissions("monitor:data:view")
+    @RequiresPermissions("tool:swagger:view")
     @GetMapping()
     public String index()
     {
-        return redirect(prefix + "/index");
+        return redirect("/swagger-ui.html");
     }
 }

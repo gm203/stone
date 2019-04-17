@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.system;
+package com.ak.system.controller.system;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

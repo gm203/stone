@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.system;
+package com.ak.system.controller.system;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

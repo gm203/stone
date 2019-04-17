@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.tool;
+package com.ak.system.controller.monitor;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ak.common.core.controller.BaseController;
 
 /**
- * build 表单构建
+ * druid 监控
  * 
  * @author ak
  */
 @Controller
-@RequestMapping("/tool/build")
-public class BuildController extends BaseController
+@RequestMapping("/monitor/data")
+public class DruidController extends BaseController
 {
-    private String prefix = "tool/build";
+    private String prefix = "/monitor/druid";
 
-    @RequiresPermissions("tool:build:view")
+    @RequiresPermissions("monitor:data:view")
     @GetMapping()
-    public String build()
+    public String index()
     {
-        return prefix + "/build";
+        return redirect(prefix + "/index");
     }
 }

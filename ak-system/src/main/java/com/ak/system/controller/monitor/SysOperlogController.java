@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.monitor;
+package com.ak.system.controller.monitor;
 
 import java.util.List;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

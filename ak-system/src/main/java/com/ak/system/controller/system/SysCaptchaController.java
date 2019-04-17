@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.system;
+package com.ak.system.controller.system;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

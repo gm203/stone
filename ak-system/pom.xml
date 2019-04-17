@@ -28,18 +28,6 @@
 			<optional>true</optional> <!-- 表示依赖不会传递 -->
 		</dependency>
 
-		<!-- swagger2-->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-		</dependency>
-		
-		<!-- swagger2-UI-->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-		</dependency>
-
 		<!-- 核心模块-->
         <dependency>
             <groupId>com.ak</groupId>

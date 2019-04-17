@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.tool;
+package com.ak.system.controller.tool;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -7,18 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ak.common.core.controller.BaseController;
 
 /**
- * swagger 接口
+ * build 表单构建
  * 
  * @author ak
  */
 @Controller
-@RequestMapping("/tool/swagger")
-public class SwaggerController extends BaseController
+@RequestMapping("/tool/build")
+public class BuildController extends BaseController
 {
-    @RequiresPermissions("tool:swagger:view")
+    private String prefix = "tool/build";
+
+    @RequiresPermissions("tool:build:view")
     @GetMapping()
-    public String index()
+    public String build()
     {
-        return redirect("/swagger-ui.html");
+        return prefix + "/build";
     }
 }

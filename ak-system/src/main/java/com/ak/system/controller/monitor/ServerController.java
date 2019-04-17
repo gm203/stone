@@ -1,4 +1,4 @@
-package com.ak.system.web.controller.monitor;
+package com.ak.system.controller.monitor;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
