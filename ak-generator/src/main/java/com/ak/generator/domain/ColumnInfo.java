@@ -3,6 +3,9 @@ package com.ak.generator.domain;
 import com.ak.common.json.JSON;
 import com.ak.common.utils.StringUtils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ry数据库表列信息
  * 
@@ -10,9 +13,13 @@ import com.ak.common.utils.StringUtils;
  */
 public class ColumnInfo {
 	/** 字段名称 */
+	@Getter
+	@Setter
 	private String columnName;
 
 	/** 字段类型 */
+	@Getter
+	@Setter
 	private String dataType;
 
 	/** 列描述 */
@@ -22,6 +29,8 @@ public class ColumnInfo {
 	private ColumnConfigInfo configInfo;
 
 	/** Java属性类型 */
+	@Getter
+	@Setter
 	private String attrType;
 
 	/** Java属性名称(第一个字母大写)，如：user_name => UserName */
@@ -31,23 +40,9 @@ public class ColumnInfo {
 	private String attrname;
 
 	/** 执行计划（包含了与索引相关的一些细节信息） */
+	@Getter
+	@Setter
 	private String extra;
-
-	public String getColumnName() {
-		return columnName;
-	}
-
-	public void setColumnName(String columnName) {
-		this.columnName = columnName;
-	}
-
-	public String getDataType() {
-		return dataType;
-	}
-
-	public void setDataType(String dataType) {
-		this.dataType = dataType;
-	}
 
 	public String getColumnComment() {
 		return columnComment;
@@ -62,7 +57,7 @@ public class ColumnInfo {
 			this.columnComment = columnComment;
 		}
 	}
-
+	
 	public String getAttrName() {
 		return attrName;
 	}
@@ -77,29 +72,5 @@ public class ColumnInfo {
 
 	public void setAttrname(String attrname) {
 		this.attrname = attrname;
-	}
-
-	public String getAttrType() {
-		return attrType;
-	}
-
-	public void setAttrType(String attrType) {
-		this.attrType = attrType;
-	}
-
-	public String getExtra() {
-		return extra;
-	}
-
-	public void setExtra(String extra) {
-		this.extra = extra;
-	}
-
-	public ColumnConfigInfo getConfigInfo() {
-		return configInfo;
-	}
-
-	public void setConfigInfo(ColumnConfigInfo configInfo) {
-		this.configInfo = configInfo;
 	}
 }

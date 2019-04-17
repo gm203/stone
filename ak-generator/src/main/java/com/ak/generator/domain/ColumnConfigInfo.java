@@ -2,6 +2,9 @@ package com.ak.generator.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 字段类型配置 由数据库字段的注释解析而来 注释结构示例:{"title": "状态", "type": "dict", "value":
  * "sys_common_status"} {"title": "登录时间", "type": "date"}
@@ -10,6 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class ColumnConfigInfo {
 	/**
 	 * 属性标题
@@ -34,30 +39,6 @@ public class ColumnConfigInfo {
 		super();
 		this.title = title;
 		this.type = type;
-		this.value = value;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
 		this.value = value;
 	}
 }

@@ -4,6 +4,9 @@ import java.util.List;
 import com.ak.common.core.domain.BaseEntity;
 import com.ak.common.utils.StringUtils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * ry 数据库表
  * 
@@ -13,9 +16,13 @@ public class TableInfo extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	/** 表名称 */
+	@Getter
+	@Setter
 	private String tableName;
 
 	/** 表描述 */
+	@Getter
+	@Setter
 	private String tableComment;
 
 	/** 表的主键列信息 */
@@ -30,21 +37,6 @@ public class TableInfo extends BaseEntity {
 	/** 类名(第一个字母小写) */
 	private String classname;
 
-	public String getTableName() {
-		return tableName;
-	}
-
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
-
-	public String getTableComment() {
-		return tableComment;
-	}
-
-	public void setTableComment(String tableComment) {
-		this.tableComment = tableComment;
-	}
 
 	public List<ColumnInfo> getColumns() {
 		return columns;

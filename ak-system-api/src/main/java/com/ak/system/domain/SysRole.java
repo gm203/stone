@@ -5,11 +5,16 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ak.common.annotation.Excel;
 import com.ak.common.core.domain.BaseEntity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 角色表 sys_role
  * 
  * @author ak
  */
+@Getter
+@Setter
 public class SysRole extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
@@ -37,9 +42,6 @@ public class SysRole extends BaseEntity {
 	@Excel(name = "角色状态", readConverterExp = "0=正常,1=停用")
 	private String status;
 
-	/** 删除标志（0代表存在 2代表删除） */
-	private String delFlag;
-
 	/** 用户是否存在此角色标识 默认不存在 */
 	private boolean flag = false;
 
@@ -48,70 +50,6 @@ public class SysRole extends BaseEntity {
 
 	/** 部门组（数据权限） */
 	private Long[] deptIds;
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	public String getDataScope() {
-		return dataScope;
-	}
-
-	public void setDataScope(String dataScope) {
-		this.dataScope = dataScope;
-	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public String getRoleKey() {
-		return roleKey;
-	}
-
-	public void setRoleKey(String roleKey) {
-		this.roleKey = roleKey;
-	}
-
-	public String getRoleSort() {
-		return roleSort;
-	}
-
-	public void setRoleSort(String roleSort) {
-		this.roleSort = roleSort;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public String getDelFlag() {
-		return delFlag;
-	}
-
-	public void setDelFlag(String delFlag) {
-		this.delFlag = delFlag;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public boolean isFlag() {
-		return flag;
-	}
-
-	public void setFlag(boolean flag) {
-		this.flag = flag;
-	}
 
 	public Long[] getMenuIds() {
 		return menuIds;

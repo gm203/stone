@@ -4,11 +4,16 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ak.common.core.domain.BaseEntity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 通知公告表 sys_notice
  * 
  * @author ak
  */
+@Getter
+@Setter
 public class SysNotice extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
@@ -26,46 +31,6 @@ public class SysNotice extends BaseEntity {
 
 	/** 公告状态（0正常 1关闭） */
 	private String status;
-
-	public Long getNoticeId() {
-		return noticeId;
-	}
-
-	public void setNoticeId(Long noticeId) {
-		this.noticeId = noticeId;
-	}
-
-	public void setNoticeTitle(String noticeTitle) {
-		this.noticeTitle = noticeTitle;
-	}
-
-	public String getNoticeTitle() {
-		return noticeTitle;
-	}
-
-	public void setNoticeType(String noticeType) {
-		this.noticeType = noticeType;
-	}
-
-	public String getNoticeType() {
-		return noticeType;
-	}
-
-	public void setNoticeContent(String noticeContent) {
-		this.noticeContent = noticeContent;
-	}
-
-	public String getNoticeContent() {
-		return noticeContent;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getStatus() {
-		return status;
-	}
 
 	@Override
 	public String toString() {

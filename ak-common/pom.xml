@@ -75,6 +75,11 @@
 			<artifactId>snakeyaml</artifactId>
 		</dependency>
 
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		</dependency>
+
 		<!-- servlet包 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
