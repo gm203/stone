@@ -5,12 +5,10 @@ package com.ak.common.exception.user;
  * 
  * @author ak
  */
-public class UserDeleteException extends UserException
-{
-    private static final long serialVersionUID = 1L;
+public class UserDeleteException extends UserException {
+	private static final long serialVersionUID = 1L;
 
-    public UserDeleteException()
-    {
-        super("user.password.delete", null);
-    }
+	public UserDeleteException() {
+		super("user.password.delete", null);
+	}
 }

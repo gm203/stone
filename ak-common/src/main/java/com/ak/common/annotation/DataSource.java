@@ -13,10 +13,9 @@ import com.ak.common.enums.DataSourceType;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DataSource
-{
-    /**
-     * 切换数据源名称
-     */
-    public DataSourceType value() default DataSourceType.MASTER;
+public @interface DataSource {
+	/**
+	 * 切换数据源名称
+	 */
+	public DataSourceType value() default DataSourceType.MASTER;
 }

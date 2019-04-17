@@ -11,170 +11,137 @@ import java.util.List;
  * 
  * @author ak
  */
-public class SysMenu extends BaseEntity
-{
-    private static final long serialVersionUID = 1L;
-    
-    /** 菜单ID */
-    private Long menuId;
-    
-    /** 菜单名称 */
-    private String menuName;
-    
-    /** 父菜单名称 */
-    private String parentName;
-    
-    /** 父菜单ID */
-    private Long parentId;
-    
-    /** 显示顺序 */
-    private String orderNum;
-    
-    /** 菜单URL */
-    private String url;
-    
-    /** 类型:0目录,1菜单,2按钮 */
-    private String menuType;
-    
-    /** 菜单状态:0显示,1隐藏 */
-    private String visible;
-    
-    /** 权限字符串 */
-    private String perms;
-    
-    /** 菜单图标 */
-    private String icon;
-    
-    /** 子菜单 */
-    private List<SysMenu> children = new ArrayList<SysMenu>();
+public class SysMenu extends BaseEntity {
+	private static final long serialVersionUID = 1L;
 
-    public Long getMenuId()
-    {
-        return menuId;
-    }
+	/** 菜单ID */
+	private Long menuId;
 
-    public void setMenuId(Long menuId)
-    {
-        this.menuId = menuId;
-    }
+	/** 菜单名称 */
+	private String menuName;
 
-    public String getMenuName()
-    {
-        return menuName;
-    }
+	/** 父菜单名称 */
+	private String parentName;
 
-    public void setMenuName(String menuName)
-    {
-        this.menuName = menuName;
-    }
+	/** 父菜单ID */
+	private Long parentId;
 
-    public String getParentName()
-    {
-        return parentName;
-    }
+	/** 显示顺序 */
+	private String orderNum;
 
-    public void setParentName(String parentName)
-    {
-        this.parentName = parentName;
-    }
+	/** 菜单URL */
+	private String url;
 
-    public Long getParentId()
-    {
-        return parentId;
-    }
+	/** 类型:0目录,1菜单,2按钮 */
+	private String menuType;
 
-    public void setParentId(Long parentId)
-    {
-        this.parentId = parentId;
-    }
+	/** 菜单状态:0显示,1隐藏 */
+	private String visible;
 
-    public String getOrderNum()
-    {
-        return orderNum;
-    }
+	/** 权限字符串 */
+	private String perms;
 
-    public void setOrderNum(String orderNum)
-    {
-        this.orderNum = orderNum;
-    }
+	/** 菜单图标 */
+	private String icon;
 
-    public String getUrl()
-    {
-        return url;
-    }
+	/** 子菜单 */
+	private List<SysMenu> children = new ArrayList<SysMenu>();
 
-    public void setUrl(String url)
-    {
-        this.url = url;
-    }
+	public Long getMenuId() {
+		return menuId;
+	}
 
-    public String getMenuType()
-    {
-        return menuType;
-    }
+	public void setMenuId(Long menuId) {
+		this.menuId = menuId;
+	}
 
-    public void setMenuType(String menuType)
-    {
-        this.menuType = menuType;
-    }
+	public String getMenuName() {
+		return menuName;
+	}
 
-    public String getVisible()
-    {
-        return visible;
-    }
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
 
-    public void setVisible(String visible)
-    {
-        this.visible = visible;
-    }
+	public String getParentName() {
+		return parentName;
+	}
 
-    public String getPerms()
-    {
-        return perms;
-    }
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
 
-    public void setPerms(String perms)
-    {
-        this.perms = perms;
-    }
+	public Long getParentId() {
+		return parentId;
+	}
 
-    public String getIcon()
-    {
-        return icon;
-    }
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
 
-    public void setIcon(String icon)
-    {
-        this.icon = icon;
-    }
+	public String getOrderNum() {
+		return orderNum;
+	}
 
-    public List<SysMenu> getChildren()
-    {
-        return children;
-    }
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 
-    public void setChildren(List<SysMenu> children)
-    {
-        this.children = children;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("menuId", getMenuId())
-            .append("menuName", getMenuName())
-            .append("parentId", getParentId())
-            .append("orderNum", getOrderNum())
-            .append("url", getUrl())
-            .append("menuType", getMenuType())
-            .append("visible", getVisible())
-            .append("perms", getPerms())
-            .append("icon", getIcon())
-            .append("createBy", getCreateBy())
-            .append("createTime", getCreateTime())
-            .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
-            .toString();
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getMenuType() {
+		return menuType;
+	}
+
+	public void setMenuType(String menuType) {
+		this.menuType = menuType;
+	}
+
+	public String getVisible() {
+		return visible;
+	}
+
+	public void setVisible(String visible) {
+		this.visible = visible;
+	}
+
+	public String getPerms() {
+		return perms;
+	}
+
+	public void setPerms(String perms) {
+		this.perms = perms;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public List<SysMenu> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<SysMenu> children) {
+		this.children = children;
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append("menuId", getMenuId())
+				.append("menuName", getMenuName()).append("parentId", getParentId()).append("orderNum", getOrderNum())
+				.append("url", getUrl()).append("menuType", getMenuType()).append("visible", getVisible())
+				.append("perms", getPerms()).append("icon", getIcon()).append("createBy", getCreateBy())
+				.append("createTime", getCreateTime()).append("updateBy", getUpdateBy())
+				.append("updateTime", getUpdateTime()).append("remark", getRemark()).toString();
+	}
 }

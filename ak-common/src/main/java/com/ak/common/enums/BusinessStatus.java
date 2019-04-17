@@ -5,15 +5,14 @@ package com.ak.common.enums;
  * 
  * @author ak
  */
-public enum BusinessStatus
-{
-    /**
-     * 成功
-     */
-    SUCCESS,
+public enum BusinessStatus {
+	/**
+	 * 成功
+	 */
+	SUCCESS,
 
-    /**
-     * 失败
-     */
-    FAIL,
+	/**
+	 * 失败
+	 */
+	FAIL,
 }

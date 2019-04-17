@@ -13,14 +13,12 @@ import org.springframework.context.annotation.ComponentScan;
  * @author ak
  */
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
-@ServletComponentScan(basePackages = {"com.ak"})
-@ComponentScan(basePackages = {"com.ak"})
+@ServletComponentScan(basePackages = { "com.ak" })
+@ComponentScan(basePackages = { "com.ak" })
 @MapperScan("com.ak.*.mapper")
-public class StoneApplication
-{
-    public static void main(String[] args)
-    {
-        // System.setProperty("spring.devtools.restart.enabled", "false");
-        SpringApplication.run(StoneApplication.class, args);
-    }
+public class StoneApplication {
+	public static void main(String[] args) {
+		// System.setProperty("spring.devtools.restart.enabled", "false");
+		SpringApplication.run(StoneApplication.class, args);
+	}
 }

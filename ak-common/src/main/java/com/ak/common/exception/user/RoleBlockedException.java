@@ -5,12 +5,10 @@ package com.ak.common.exception.user;
  * 
  * @author ak
  */
-public class RoleBlockedException extends UserException
-{
-    private static final long serialVersionUID = 1L;
+public class RoleBlockedException extends UserException {
+	private static final long serialVersionUID = 1L;
 
-    public RoleBlockedException()
-    {
-        super("role.blocked", null);
-    }
+	public RoleBlockedException() {
+		super("role.blocked", null);
+	}
 }

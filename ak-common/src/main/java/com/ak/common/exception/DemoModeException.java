@@ -5,11 +5,9 @@ package com.ak.common.exception;
  * 
  * @author ak
  */
-public class DemoModeException extends RuntimeException
-{
-    private static final long serialVersionUID = 1L;
+public class DemoModeException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
 
-    public DemoModeException()
-    {
-    }
+	public DemoModeException() {
+	}
 }

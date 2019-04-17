@@ -5,15 +5,14 @@ package com.ak.common.enums;
  * 
  * @author ak
  */
-public enum DataSourceType
-{
-    /**
-     * 主库
-     */
-    MASTER,
+public enum DataSourceType {
+	/**
+	 * 主库
+	 */
+	MASTER,
 
-    /**
-     * 从库
-     */
-    SLAVE
+	/**
+	 * 从库
+	 */
+	SLAVE
 }

@@ -27,63 +27,58 @@ import com.ak.generator.service.IGenService;
  */
 @Controller
 @RequestMapping("/tool/gen")
-public class GenController extends BaseController
-{
-    private String prefix = "tool/gen";
+public class GenController extends BaseController {
+	private String prefix = "tool/gen";
 
-    @Autowired
-    private IGenService genService;
+	@Autowired
+	private IGenService genService;
 
-    @RequiresPermissions("tool:gen:view")
-    @GetMapping()
-    public String gen()
-    {
-        return prefix + "/gen";
-    }
+	@RequiresPermissions("tool:gen:view")
+	@GetMapping()
+	public String gen() {
+		return prefix + "/gen";
+	}
 
-    @RequiresPermissions("tool:gen:list")
-    @PostMapping("/list")
-    @ResponseBody
-    public TableDataInfo list(TableInfo tableInfo)
-    {
-        startPage();
-        List<TableInfo> list = genService.selectTableList(tableInfo);
-        return getDataTable(list);
-    }
+	@RequiresPermissions("tool:gen:list")
+	@PostMapping("/list")
+	@ResponseBody
+	public TableDataInfo list(TableInfo tableInfo) {
+		startPage();
+		List<TableInfo> list = genService.selectTableList(tableInfo);
+		return getDataTable(list);
+	}
 
-    /**
-     * 生成代码
-     */
-    @RequiresPermissions("tool:gen:code")
-    @Log(title = "代码生成", businessType = BusinessType.GENCODE)
-    @GetMapping("/genCode/{tableName}")
-    public void genCode(HttpServletResponse response, @PathVariable("tableName") String tableName) throws IOException
-    {
-        byte[] data = genService.generatorCode(tableName);
-        response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"ak.zip\"");
-        response.addHeader("Content-Length", "" + data.length);
-        response.setContentType("application/octet-stream; charset=UTF-8");
+	/**
+	 * 生成代码
+	 */
+	@RequiresPermissions("tool:gen:code")
+	@Log(title = "代码生成", businessType = BusinessType.GENCODE)
+	@GetMapping("/genCode/{tableName}")
+	public void genCode(HttpServletResponse response, @PathVariable("tableName") String tableName) throws IOException {
+		byte[] data = genService.generatorCode(tableName);
+		response.reset();
+		response.setHeader("Content-Disposition", "attachment; filename=\"ak.zip\"");
+		response.addHeader("Content-Length", "" + data.length);
+		response.setContentType("application/octet-stream; charset=UTF-8");
 
-        IOUtils.write(data, response.getOutputStream());
-    }
+		IOUtils.write(data, response.getOutputStream());
+	}
 
-    /**
-     * 批量生成代码
-     */
-    @RequiresPermissions("tool:gen:code")
-    @Log(title = "代码生成", businessType = BusinessType.GENCODE)
-    @GetMapping("/batchGenCode")
-    @ResponseBody
-    public void batchGenCode(HttpServletResponse response, String tables) throws IOException
-    {
-        String[] tableNames = Convert.toStrArray(tables);
-        byte[] data = genService.generatorCode(tableNames);
-        response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"ak.zip\"");
-        response.addHeader("Content-Length", "" + data.length);
-        response.setContentType("application/octet-stream; charset=UTF-8");
+	/**
+	 * 批量生成代码
+	 */
+	@RequiresPermissions("tool:gen:code")
+	@Log(title = "代码生成", businessType = BusinessType.GENCODE)
+	@GetMapping("/batchGenCode")
+	@ResponseBody
+	public void batchGenCode(HttpServletResponse response, String tables) throws IOException {
+		String[] tableNames = Convert.toStrArray(tables);
+		byte[] data = genService.generatorCode(tableNames);
+		response.reset();
+		response.setHeader("Content-Disposition", "attachment; filename=\"ak.zip\"");
+		response.addHeader("Content-Length", "" + data.length);
+		response.setContentType("application/octet-stream; charset=UTF-8");
 
-        IOUtils.write(data, response.getOutputStream());
-    }
+		IOUtils.write(data, response.getOutputStream());
+	}
 }

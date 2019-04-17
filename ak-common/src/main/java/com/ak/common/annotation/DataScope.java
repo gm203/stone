@@ -14,10 +14,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface DataScope
-{
-    /**
-     * 表的别名
-     */
-    public String tableAlias() default "";
+public @interface DataScope {
+	/**
+	 * 表的别名
+	 */
+	public String tableAlias() default "";
 }

@@ -22,38 +22,31 @@ import com.ak.common.utils.StringUtils;
 @Aspect
 @Order(1)
 @Component
-public class DataSourceAspect
-{
-    protected Logger logger = LoggerFactory.getLogger(getClass());
+public class DataSourceAspect {
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("@annotation(com.ak.common.annotation.DataSource)")
-    public void dsPointCut()
-    {
+	@Pointcut("@annotation(com.ak.common.annotation.DataSource)")
+	public void dsPointCut() {
 
-    }
+	}
 
-    @Around("dsPointCut()")
-    public Object around(ProceedingJoinPoint point) throws Throwable
-    {
-        MethodSignature signature = (MethodSignature) point.getSignature();
+	@Around("dsPointCut()")
+	public Object around(ProceedingJoinPoint point) throws Throwable {
+		MethodSignature signature = (MethodSignature) point.getSignature();
 
-        Method method = signature.getMethod();
+		Method method = signature.getMethod();
 
-        DataSource dataSource = method.getAnnotation(DataSource.class);
+		DataSource dataSource = method.getAnnotation(DataSource.class);
 
-        if (StringUtils.isNotNull(dataSource))
-        {
-            DynamicDataSourceContextHolder.setDataSourceType(dataSource.value().name());
-        }
+		if (StringUtils.isNotNull(dataSource)) {
+			DynamicDataSourceContextHolder.setDataSourceType(dataSource.value().name());
+		}
 
-        try
-        {
-            return point.proceed();
-        }
-        finally
-        {
-            // 销毁数据源 在执行方法之后
-            DynamicDataSourceContextHolder.clearDataSourceType();
-        }
-    }
+		try {
+			return point.proceed();
+		} finally {
+			// 销毁数据源 在执行方法之后
+			DynamicDataSourceContextHolder.clearDataSourceType();
+		}
+	}
 }

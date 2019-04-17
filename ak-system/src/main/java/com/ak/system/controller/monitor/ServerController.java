@@ -15,17 +15,15 @@ import com.ak.framework.web.domain.Server;
  */
 @Controller
 @RequestMapping("/monitor/server")
-public class ServerController extends BaseController
-{
-    private String prefix = "monitor/server";
+public class ServerController extends BaseController {
+	private String prefix = "monitor/server";
 
-    @RequiresPermissions("monitor:server:view")
-    @GetMapping()
-    public String server(ModelMap mmap) throws Exception
-    {
-        Server server = new Server();
-        server.copyTo();
-        mmap.put("server", server);
-        return prefix + "/server";
-    }
+	@RequiresPermissions("monitor:server:view")
+	@GetMapping()
+	public String server(ModelMap mmap) throws Exception {
+		Server server = new Server();
+		server.copyTo();
+		mmap.put("server", server);
+		return prefix + "/server";
+	}
 }
