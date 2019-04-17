@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
-    <title>若依管理系统首页</title>
-    <meta name="keywords" content="若依管理系统首页">
-    <meta name="description" content="若依管理系统首页">
+    <title>首页</title>
+    <meta name="keywords" content="管理系统首页">
+    <meta name="description" content="管理系统首页">
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
@@ -16,7 +16,7 @@
     <link th:href="@{/css/animate.css}" rel="stylesheet"/>
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
     <link th:href="@{/css/skins.css}" rel="stylesheet"/>
-    <link th:href="@{/ruoyi/css/ry-ui.css?v=3.3.0}" rel="stylesheet"/>
+    <link th:href="@{/ak/css/ry-ui.css?v=3.3.0}" rel="stylesheet"/>
     <style type="text/css">
         #content-main.max { height: calc(100% - 110px); overflow: hidden; width: 100%; height: 100%; left: 0px; position: absolute; top: 0px; z-index: 9998; margin: 0; }
     </style>
@@ -32,7 +32,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
                 <li class="logo">
-				     <span class="logo-lg">RuoYi</span>
+				     <span class="logo-lg">AK</span>
             	</li>
             	<li>
             		<div class="user-panel">
@@ -86,7 +86,6 @@
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right welcome-message">
-                    <li><a title="使用文档" href="http://doc.ruoyi.vip" target="_blank"><i class="fa fa-question-circle"></i> 使用文档</a></li>
 	                <li><a title="全屏显示" id="fullScreen"><i class="fa fa-arrows-alt"></i> 全屏显示</a></li>
                     <li class="dropdown user-menu">
 						<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
@@ -141,11 +140,11 @@
         <a id="ax_close_max" class="ax_close_max" href="#" title="关闭全屏"> <i class="fa fa-times-circle-o"></i> </a>
                     
         <div class="row mainContent" id="content-main">
-            <iframe class="RuoYi_iframe" name="iframe0" width="100%" height="100%" data-id="/system/main"
+            <iframe class="Stone_iframe" name="iframe0" width="100%" height="100%" data-id="/system/main"
                     th:src="@{/system/main}" frameborder="0" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">© [[${copyrightYear}]] RuoYi Copyright </div>
+            <div class="pull-right">© [[${copyrightYear}]] AK Copyright </div>
         </div>
     </div>
     <!--右侧部分结束-->
@@ -157,8 +156,8 @@
 <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 <script th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
 <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
-<script th:src="@{/ruoyi/js/ry-ui.js?v=3.3.0}"></script>
-<script th:src="@{/ruoyi/index.js}"></script>
+<script th:src="@{/ak/js/ry-ui.js?v=3.3.0}"></script>
+<script th:src="@{/ak/index.js}"></script>
 <script th:src="@{/ajax/libs/fullscreen/jquery.fullscreen.js}"></script>
 <script th:inline="javascript"> 
 var ctx = [[@{/}]];

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>stone</artifactId>
-        <groupId>com.ak</groupId>
-        <version>1.0</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
-	
-    <artifactId>ak-framework</artifactId>
-	
-	<description>框架核心</description>
-    
-    <dependencies>
-		<!-- 系统模块-->
-        <dependency>
-            <groupId>com.ak</groupId>
-            <artifactId>ak-system-api</artifactId>
-        </dependency>
-		
-        <!-- SpringBoot Web容器 -->
-	     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>stone</artifactId>
+		<groupId>com.ak</groupId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-        <!-- SpringBoot 拦截器 -->
+	<artifactId>ak-framework</artifactId>
+
+	<description>框架核心</description>
+
+	<dependencies>
+		<!-- 系统模块 -->
+		<dependency>
+			<groupId>com.ak</groupId>
+			<artifactId>ak-system-api</artifactId>
+		</dependency>
+
+		<!-- SpringBoot Web容器 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- SpringBoot 拦截器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -34,10 +34,10 @@
 
 		<!--阿里数据库连接池 -->
 		<dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-		
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+		</dependency>
+
 		<!--验证码 -->
 		<dependency>
 			<groupId>com.github.penggle</groupId>
@@ -61,7 +61,7 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-ehcache</artifactId>
 		</dependency>
-		
+
 		<!-- thymeleaf模板引擎和shiro框架的整合 -->
 		<dependency>
 			<groupId>com.github.theborakompanioni</groupId>
@@ -79,24 +79,24 @@
 			<groupId>com.github.oshi</groupId>
 			<artifactId>oshi-core</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna-platform</artifactId>
 		</dependency>
-		
-		<!-- swagger2-->
+
+		<!-- swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 		</dependency>
-		
-		<!-- swagger2-UI-->
+
+		<!-- swagger2-UI -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
@@ -107,6 +107,6 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-    </dependencies>
-    
+	</dependencies>
+
 </project>

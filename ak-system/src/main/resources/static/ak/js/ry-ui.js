@@ -900,7 +900,7 @@
                 if (result.code == web_status.SUCCESS) {
                 	var topWindow = $(window.parent.document);
     	            var currentId = $('.page-tabs-content', topWindow).find('.active').attr('data-panel');
-    	            var $contentWindow = $('.RuoYi_iframe[data-id="' + currentId + '"]', topWindow)[0].contentWindow;
+    	            var $contentWindow = $('.Stone_iframe[data-id="' + currentId + '"]', topWindow)[0].contentWindow;
     	            $.modal.close();
     	            $contentWindow.$.modal.msgSuccess(result.msg);
     	            $contentWindow.$(".layui-layer-padding").removeAttr("style");
