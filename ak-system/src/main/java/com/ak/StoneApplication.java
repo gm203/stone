@@ -18,7 +18,6 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan("com.ak.*.mapper")
 public class StoneApplication {
 	public static void main(String[] args) {
-		// System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(StoneApplication.class, args);
 	}
 }
