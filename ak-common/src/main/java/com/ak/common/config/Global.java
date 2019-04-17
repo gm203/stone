@@ -70,14 +70,14 @@ public class Global {
 	 * 获取项目版本
 	 */
 	public static String getVersion() {
-		return StringUtils.nvl(getConfig("ak.version"), "3.3.0");
+		return StringUtils.nvl(getConfig("ak.version"), "1.0.0");
 	}
 
 	/**
 	 * 获取版权年份
 	 */
 	public static String getCopyrightYear() {
-		return StringUtils.nvl(getConfig("ak.copyrightYear"), "2018");
+		return StringUtils.nvl(getConfig("ak.copyrightYear"), "2019");
 	}
 
 	/**

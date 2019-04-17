@@ -1,7 +1,7 @@
 # 项目相关配置
 ak:
   # 名称
-  name: stone
+  name: Stone
   # 版本
   version: 1.0.0
   # 版权年份
@@ -14,7 +14,7 @@ ak:
 # 开发环境配置
 server:
   # 服务端口
-  port: 80
+  port: 8888
   servlet:
     # 项目contextPath
     context-path: /

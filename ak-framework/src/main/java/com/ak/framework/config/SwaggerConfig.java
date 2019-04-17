@@ -33,7 +33,7 @@ public class SwaggerConfig {
 				// 详细定制
 				.apiInfo(apiInfo()).select()
 				// 指定当前包路径
-				.apis(RequestHandlerSelectors.basePackage("com.ak.system.api"))
+				.apis(RequestHandlerSelectors.basePackage("com.ak.visualization.api"))
 				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
 				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)) // 这里采用包含注解的方式来确定要显示的接口
 				// 扫描所有 .apis(RequestHandlerSelectors.any())

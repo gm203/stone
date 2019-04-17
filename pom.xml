@@ -163,13 +163,6 @@
 				<artifactId>ak-quartz</artifactId>
 				<version>${stone.version}</version>
 			</dependency>
-	
-			<!-- 代码生成-->
-			<dependency>
-				<groupId>com.ak</groupId>
-				<artifactId>ak-generator</artifactId>
-				<version>${stone.version}</version>
-			</dependency>
 			
 			<!-- 核心模块-->
 			<dependency>
@@ -200,7 +193,6 @@
 		<module>ak-framework</module>
 		<module>ak-system-api</module>
 		<module>ak-quartz</module>
-		<module>ak-generator</module>
         <module>ak-common</module>
     </modules>
     <packaging>pom</packaging>

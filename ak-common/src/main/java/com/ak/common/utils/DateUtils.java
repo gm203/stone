@@ -3,8 +3,11 @@ package com.ak.common.utils;
 import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.FastDateFormat;
 
 /**
  * 时间工具类
@@ -129,5 +132,44 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		// 计算差多少秒//输出结果
 		// long sec = diff % nd % nh % nm / ns;
 		return day + "天" + hour + "小时" + min + "分钟";
+	}
+	
+	/** 
+	* 上一年的第一天  2018-01-01 
+	* 
+	* @return 
+	*/ 
+	public static String getLastYearFirstDate() { 
+		FastDateFormat ff = DateFormatUtils.ISO_8601_EXTENDED_DATE_FORMAT;
+		Calendar c = Calendar.getInstance(); 
+		String now = null; 
+		try { 
+			c.add(Calendar.YEAR, -1); 
+		c.set(Calendar.MONTH, 0); 
+		c.set(Calendar.DATE, 1); 
+		now = ff.format(c.getTime()); 
+		} catch (Exception e) { 
+		e.printStackTrace(); 
+		} 
+		return now; 
+	}
+
+	/** 
+	* 当年第一天   2019-01-01 
+	* 
+	* @return 
+	*/ 
+	public static String getCurrentYearFirstDate() { 
+		FastDateFormat ff = DateFormatUtils.ISO_8601_EXTENDED_DATE_FORMAT;
+		Calendar c = Calendar.getInstance(); 
+		String now = null; 
+		try { 
+		c.set(Calendar.MONTH, 0); 
+		c.set(Calendar.DATE, 1); 
+		now = ff.format(c.getTime()); 
+		} catch (Exception e) { 
+		e.printStackTrace(); 
+		} 
+		return now; 
 	}
 }

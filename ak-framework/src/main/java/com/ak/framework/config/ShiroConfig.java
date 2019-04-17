@@ -247,17 +247,21 @@ public class ShiroConfig {
 		// Shiro连接约束配置，即过滤链的定义
 		LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 		// 对静态资源设置匿名访问
-		filterChainDefinitionMap.put("/favicon.ico**", "anon");
-		filterChainDefinitionMap.put("/ak.png**", "anon");
+		filterChainDefinitionMap.put("/ajax/**", "anon");
+		filterChainDefinitionMap.put("/ak/**", "anon");
 		filterChainDefinitionMap.put("/css/**", "anon");
-		filterChainDefinitionMap.put("/docs/**", "anon");
+		filterChainDefinitionMap.put("/file/**", "anon");
 		filterChainDefinitionMap.put("/fonts/**", "anon");
 		filterChainDefinitionMap.put("/img/**", "anon");
-		filterChainDefinitionMap.put("/ajax/**", "anon");
 		filterChainDefinitionMap.put("/js/**", "anon");
-		filterChainDefinitionMap.put("/ak/**", "anon");
+		filterChainDefinitionMap.put("/favicon.ico**", "anon");
+		filterChainDefinitionMap.put("/slogin.png**", "anon");
+		
+		filterChainDefinitionMap.put("/docs/**", "anon");
 		filterChainDefinitionMap.put("/druid/**", "anon");
 		filterChainDefinitionMap.put("/captcha/captchaImage**", "anon");
+		// 对外接口不拦截
+		filterChainDefinitionMap.put("/rest/**", "anon");
 		// 退出 logout地址，shiro去清除session
 		filterChainDefinitionMap.put("/logout", "logout");
 		// 不需要拦截的访问

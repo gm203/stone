@@ -40,12 +40,6 @@
             <artifactId>ak-quartz</artifactId>
         </dependency>
         
-        <!-- 代码生成-->
-        <dependency>
-            <groupId>com.ak</groupId>
-            <artifactId>ak-generator</artifactId>
-        </dependency>
-        
     </dependencies>
 
     <build>
