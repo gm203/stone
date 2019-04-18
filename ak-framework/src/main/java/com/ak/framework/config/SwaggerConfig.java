@@ -4,9 +4,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.ak.common.config.Global;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -24,6 +27,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+	
+	Predicate<RequestHandler> selector1 = RequestHandlerSelectors.basePackage("com.ak.visualization.api");
+    Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.ak.system.controller.tool");
 	/**
 	 * 创建API
 	 */
@@ -33,9 +39,9 @@ public class SwaggerConfig {
 				// 详细定制
 				.apiInfo(apiInfo()).select()
 				// 指定当前包路径
-				.apis(RequestHandlerSelectors.basePackage("com.ak.visualization.api"))
+				.apis(Predicates.or(selector1,selector2))
 				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)) // 这里采用包含注解的方式来确定要显示的接口
+				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
 				// 扫描所有 .apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();
 	}

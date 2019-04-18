@@ -45,7 +45,7 @@ spring:
     mode: HTML
     encoding: utf-8
     # 禁用缓存
-    cache: false
+    cache: true
   # 资源信息
   messages:
     # 国际化资源文件路径
@@ -67,7 +67,22 @@ spring:
     restart:
       # 热部署开关
       enabled: true
-
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    jedis:
+      pool:
+        max-active: 8  
+        max-wait: -1 
+        max-idle: 8  
+        min-idle: 0
+    timeout: 0
+    keyPrefix: visualization_  #Redis key 前缀      
+    run: true  #Redis是否启动
+    listFlush: true   #list记录根据添加修改删除自动清除
+    expireTime: 900     #缓存有效时间15分钟
+    expireTimeShiro: 1800     #缓存有效时间30分钟
 # MyBatis
 mybatis:
     # 搜索指定包别名
