@@ -1,8 +1,11 @@
 package com.ak.common.core.domain;
 
 import java.util.HashMap;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.ak.common.utils.StringUtils;
 
 /**
  * 操作消息提醒
@@ -78,7 +81,9 @@ public class AjaxResult extends HashMap<String, Object> {
 	public AjaxResult(Type type, String msg, Object data) {
 		super.put(CODE_TAG, type.value);
 		super.put(MSG_TAG, msg);
-		super.put(DATA_TAG, data);
+		if (StringUtils.isNotNull(data)) {
+			super.put(DATA_TAG, data);
+		}
 	}
 
 	/**
@@ -88,6 +93,15 @@ public class AjaxResult extends HashMap<String, Object> {
 	 */
 	public static AjaxResult success() {
 		return AjaxResult.success("操作成功");
+	}
+
+	/**
+	 * 返回成功数据
+	 * 
+	 * @return 成功消息
+	 */
+	public static AjaxResult success(Object data) {
+		return AjaxResult.success("操作成功", data);
 	}
 
 	/**

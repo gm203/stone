@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.ak.common.config.Global;
 import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +38,7 @@ public class SwaggerConfig {
 				// 详细定制
 				.apiInfo(apiInfo()).select()
 				// 指定当前包路径
-				.apis(Predicates.or(selector1,selector2))
+//				.apis(Predicates.or(selector1,selector2))
 				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
 				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
 				// 扫描所有 .apis(RequestHandlerSelectors.any())
