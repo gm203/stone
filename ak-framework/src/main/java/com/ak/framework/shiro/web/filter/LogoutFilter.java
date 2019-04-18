@@ -12,7 +12,7 @@ import com.ak.common.utils.StringUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysUser;
+import com.ak.system.domain.system.SysUser;
 
 /**
  * 退出过滤器

@@ -28,9 +28,9 @@ import com.ak.common.exception.user.UserPasswordNotMatchException;
 import com.ak.common.exception.user.UserPasswordRetryLimitExceedException;
 import com.ak.framework.shiro.service.SysLoginService;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysUser;
-import com.ak.system.service.ISysMenuService;
-import com.ak.system.service.ISysRoleService;
+import com.ak.system.domain.system.SysUser;
+import com.ak.system.service.system.ISysMenuService;
+import com.ak.system.service.system.ISysRoleService;
 
 /**
  * 自定义Realm 处理登录 权限

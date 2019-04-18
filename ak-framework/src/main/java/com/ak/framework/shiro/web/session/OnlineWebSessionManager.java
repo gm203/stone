@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.utils.spring.SpringUtils;
 import com.ak.framework.shiro.session.OnlineSession;
-import com.ak.system.domain.SysUserOnline;
-import com.ak.system.service.ISysUserOnlineService;
+import com.ak.system.domain.system.SysUserOnline;
+import com.ak.system.service.system.ISysUserOnlineService;
 
 /**
  * 主要是在此如果会话的属性修改了 就标识下其修改了 然后方便 OnlineSessionDao同步

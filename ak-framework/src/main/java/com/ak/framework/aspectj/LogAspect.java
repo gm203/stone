@@ -20,8 +20,8 @@ import com.ak.common.utils.StringUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysOperLog;
-import com.ak.system.domain.SysUser;
+import com.ak.system.domain.system.SysOperLog;
+import com.ak.system.domain.system.SysUser;
 
 /**
  * 操作日志记录处理

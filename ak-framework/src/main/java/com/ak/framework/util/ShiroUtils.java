@@ -11,7 +11,7 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.bean.BeanUtils;
 import com.ak.framework.shiro.realm.UserRealm;
-import com.ak.system.domain.SysUser;
+import com.ak.system.domain.system.SysUser;
 
 /**
  * shiro 工具类

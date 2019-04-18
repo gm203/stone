@@ -19,8 +19,6 @@ public class Ztree implements Serializable {
 	private Long id;
 
 	/** 节点父ID */
-	@Getter
-	@Setter
 	private Long pId;
 
 	/** 节点名称 */
@@ -64,5 +62,13 @@ public class Ztree implements Serializable {
 
 	public void setNocheck(boolean nocheck) {
 		this.nocheck = nocheck;
+	}
+	
+	public Long getpId() {
+		return pId;
+	}
+
+	public void setpId(Long pId) {
+		this.pId = pId;
 	}
 }

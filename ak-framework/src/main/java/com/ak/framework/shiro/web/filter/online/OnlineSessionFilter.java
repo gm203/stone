@@ -14,7 +14,7 @@ import com.ak.common.enums.OnlineStatus;
 import com.ak.framework.shiro.session.OnlineSession;
 import com.ak.framework.shiro.session.OnlineSessionDAO;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysUser;
+import com.ak.system.domain.system.SysUser;
 
 /**
  * 自定义访问控制

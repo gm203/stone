@@ -18,8 +18,8 @@ import com.ak.common.utils.ServletUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysUser;
-import com.ak.system.service.ISysUserService;
+import com.ak.system.domain.system.SysUser;
+import com.ak.system.service.system.ISysUserService;
 
 /**
  * 登录校验方法

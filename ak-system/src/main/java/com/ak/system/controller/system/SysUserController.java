@@ -1,6 +1,7 @@
 package com.ak.system.controller.system;
 
 import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.ak.common.annotation.Log;
 import com.ak.common.core.controller.BaseController;
 import com.ak.common.core.domain.AjaxResult;
@@ -20,10 +22,10 @@ import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.poi.ExcelUtil;
 import com.ak.framework.shiro.service.SysPasswordService;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.SysUser;
-import com.ak.system.service.ISysPostService;
-import com.ak.system.service.ISysRoleService;
-import com.ak.system.service.ISysUserService;
+import com.ak.system.domain.system.SysUser;
+import com.ak.system.service.system.ISysPostService;
+import com.ak.system.service.system.ISysRoleService;
+import com.ak.system.service.system.ISysUserService;
 
 /**
  * 用户信息
