@@ -41,7 +41,7 @@
 
 #### 请码农喝杯咖啡
 
-https://share.weiyun.com/55rksWR
+![WAI](http://files.git.oschina.net/group1/M00/07/71/PaAvDFy-zC6AKN5PAAF0CpVSwKs960.jpg)
 
 #### 碼雲特技
 
