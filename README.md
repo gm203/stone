@@ -43,11 +43,10 @@
 
 ![WAI](http://files.git.oschina.net/group1/M00/07/71/PaAvDFy-zdiAVryAAAClnmDz64I389.jpg)
 
-#### 碼雲特技
+#### 技术视频分享 （链接: https://pan.baidu.com/s/12rMXHU8CVlb1UqBdcb-Dng 提取码: ri6v ）
 
-1. 使用 Readme\_XXX.md 來支持不同的語言，例如 Readme\_en.md, Readme\_zh.md
-2. 碼雲官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 妳可以 [https://gitee.com/explore](https://gitee.com/explore) 這個地址來了解碼雲上的優秀開源項目
-4. [GVP](https://gitee.com/gvp) 全稱是碼雲最有價值開源項目，是碼雲綜合評定出的優秀開源項目
-5. 碼雲官方提供的使用手冊 [https://gitee.com/help](https://gitee.com/help)
-6. 碼雲封面人物是壹檔用來展示碼雲會員風采的欄目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1、Java 基础视频
+2、设计模式讲解
+3、系统架构视频
+4、SpringCloud 视频
+5、MongoDB
