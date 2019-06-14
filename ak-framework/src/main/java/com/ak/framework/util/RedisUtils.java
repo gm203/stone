@@ -1,6 +1,5 @@
 package com.ak.framework.util;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -20,7 +19,6 @@ import com.ak.common.utils.security.Md5Utils;
 /**
  * redicache 工具类 在application.yml文件内的Spring-redis的run配置启动,true为启动;false为不启动;
  */
-@SuppressWarnings("unchecked")
 @Component
 public class RedisUtils {
 	/**
@@ -42,9 +40,8 @@ public class RedisUtils {
 	public static Long expireTime = Long.parseLong(Global.getConfig("spring.redis.expireTime"));
 	public static Long expireTimeShiro = Long.parseLong(Global.getConfig("spring.redis.expireTimeShiro"));
 	public static String RUN_MESSAGE = "请开启Redis服务,还有Redis密码配置是否有误，而且密码不能为空（为空时Redis服务会连接不上）。";
-	@SuppressWarnings("rawtypes")
 	@Autowired
-	private RedisTemplate redisTemplate;
+	private RedisTemplate<String, Object> redisTemplate;
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
 
@@ -163,6 +160,7 @@ public class RedisUtils {
 				remove(key);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils remove:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 	}
@@ -188,6 +186,7 @@ public class RedisUtils {
 				redisTemplate.delete(keys);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils removePattern:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 	}
@@ -209,6 +208,7 @@ public class RedisUtils {
 				redisTemplate.delete(keys);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils removePattern:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 	}
@@ -234,6 +234,7 @@ public class RedisUtils {
 			}
 			return keysnew;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils getKyes:" + RUN_MESSAGE + e.getMessage(), e.getMessage());
 			return null;
 		}
@@ -260,6 +261,7 @@ public class RedisUtils {
 			}
 			return keysnew;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils getKyes:" + RUN_MESSAGE + e.getMessage(), e.getMessage());
 			return null;
 		}
@@ -278,6 +280,7 @@ public class RedisUtils {
 			}
 			return keysnew;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils getKyes:" + RUN_MESSAGE + e.getMessage(), e.getMessage());
 			return null;
 		}
@@ -295,6 +298,7 @@ public class RedisUtils {
 			Set<String> keys = stringRedisTemplate.keys("*");
 			return keys.size();
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils getCount:" + RUN_MESSAGE + e.getMessage(), e.getMessage());
 			return 0;
 		}
@@ -308,6 +312,7 @@ public class RedisUtils {
 			Set<String> keys = stringRedisTemplate.keys(SHIRO_REDIS + "*");
 			return keys.size();
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils getCount:" + RUN_MESSAGE + e.getMessage(), e.getMessage());
 			return 0;
 		}
@@ -329,6 +334,7 @@ public class RedisUtils {
 				redisTemplate.delete(key);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils exists:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 	}
@@ -351,6 +357,7 @@ public class RedisUtils {
 				retuslt = redisTemplate.hasKey(key);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils exists:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 		return retuslt;
@@ -372,11 +379,12 @@ public class RedisUtils {
 				ValueOperations<String, String> operationsString = stringRedisTemplate.opsForValue();
 				result = operationsString.get(key);
 			} else {
-				ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+				ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 				result = operations.get(key);
 			}
 			return result;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils get:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 		return result;
@@ -395,16 +403,17 @@ public class RedisUtils {
 		}
 		boolean result = false;
 		try {
-			ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+			ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 			operations.set(key, value);
 			redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
 			result = true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils set:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 		return result;
 	}
-
+	
 	/**
 	 * 写入缓存
 	 *
@@ -418,11 +427,12 @@ public class RedisUtils {
 		}
 		boolean result = false;
 		try {
-			ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+			ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 			operations.set(key, value);
 			redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
 			result = true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils set:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 		return result;
@@ -434,24 +444,18 @@ public class RedisUtils {
 		}
 		boolean result = false;
 		try {
-			ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+			ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 			operations.set(key, value);
 			redisTemplate.expire(key, expireTime, unit);
 			result = true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("RedisUtils set:" + RUN_MESSAGE + e.getMessage(), RUN_MESSAGE + e.getMessage());
 		}
 		return result;
 	}
 
 	private boolean run() {
-		if (Global.getConfig("spring.redis.run") == "true") {
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean isRun() {
 		if (Global.getConfig("spring.redis.run") == "true") {
 			return true;
 		}

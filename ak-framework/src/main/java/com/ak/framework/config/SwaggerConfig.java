@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.ak.common.config.Global;
 import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,9 +27,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
+
 	Predicate<RequestHandler> selector1 = RequestHandlerSelectors.basePackage("com.ak.visualization.api");
-    Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.ak.system.controller.tool");
+	Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.ak.system.controller.tool");
+
 	/**
 	 * 创建API
 	 */
@@ -38,8 +40,7 @@ public class SwaggerConfig {
 				// 详细定制
 				.apiInfo(apiInfo()).select()
 				// 指定当前包路径
-//				.apis(Predicates.or(selector1,selector2))
-				.apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+				.apis(Predicates.or(selector1, selector2)).apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
 				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
 				// 扫描所有 .apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();

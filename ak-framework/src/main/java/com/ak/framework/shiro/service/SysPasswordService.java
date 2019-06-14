@@ -1,20 +1,23 @@
 package com.ak.framework.shiro.service;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.annotation.PostConstruct;
+
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.exception.user.UserPasswordNotMatchException;
 import com.ak.common.exception.user.UserPasswordRetryLimitExceedException;
 import com.ak.common.utils.MessageUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
-import com.ak.system.domain.system.SysUser;
+import com.ak.system.domain.SysUser;
 
 /**
  * 登录密码方法

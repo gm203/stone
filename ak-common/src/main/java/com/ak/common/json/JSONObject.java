@@ -485,7 +485,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 		return arr;
 	}
 
-	private static JSONObject toObj(final Map<String, Object> map) {
+	public static JSONObject toObj(final Map<String, Object> map) {
 		final JSONObject obj = new JSONObject();
 		for (final Map.Entry<String, Object> ent : map.entrySet()) {
 			obj.put(ent.getKey(), transfer(ent.getValue()));

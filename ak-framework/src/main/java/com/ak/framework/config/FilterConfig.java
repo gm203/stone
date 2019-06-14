@@ -27,19 +27,18 @@ public class FilterConfig {
 	private String urlPatterns;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-    @Bean
-    public FilterRegistrationBean xssFilterRegistration()
-    {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setDispatcherTypes(DispatcherType.REQUEST);
-        registration.setFilter(new XssFilter());
-        registration.addUrlPatterns(StringUtils.split(urlPatterns, ","));
-        registration.setName("xssFilter");
-        registration.setOrder(Integer.MAX_VALUE);
-        Map<String, String> initParameters = new HashMap<String, String>();
-        initParameters.put("excludes", excludes);
-        initParameters.put("enabled", enabled);
-        registration.setInitParameters(initParameters);
-        return registration;
-    }
+	@Bean
+	public FilterRegistrationBean xssFilterRegistration() {
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		registration.setDispatcherTypes(DispatcherType.REQUEST);
+		registration.setFilter(new XssFilter());
+		registration.addUrlPatterns(StringUtils.split(urlPatterns, ","));
+		registration.setName("xssFilter");
+		registration.setOrder(Integer.MAX_VALUE);
+		Map<String, String> initParameters = new HashMap<String, String>();
+		initParameters.put("excludes", excludes);
+		initParameters.put("enabled", enabled);
+		registration.setInitParameters(initParameters);
+		return registration;
+	}
 }

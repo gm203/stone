@@ -52,7 +52,7 @@ public class SysMenu extends BaseEntity {
 
 	/** 子菜单 */
 	private List<SysMenu> children = new ArrayList<SysMenu>();
-
+	
 	public List<SysMenu> getChildren() {
 		return children;
 	}
@@ -60,7 +60,7 @@ public class SysMenu extends BaseEntity {
 	public void setChildren(List<SysMenu> children) {
 		this.children = children;
 	}
-
+	
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append("menuId", getMenuId())

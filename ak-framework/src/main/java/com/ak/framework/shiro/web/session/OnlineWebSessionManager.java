@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.shiro.session.ExpiredSessionException;
 import org.apache.shiro.session.InvalidSessionException;
@@ -13,11 +14,12 @@ import org.apache.shiro.session.mgt.SessionKey;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.utils.spring.SpringUtils;
 import com.ak.framework.shiro.session.OnlineSession;
-import com.ak.system.domain.system.SysUserOnline;
-import com.ak.system.service.system.ISysUserOnlineService;
+import com.ak.system.domain.SysUserOnline;
+import com.ak.system.service.ISysUserOnlineService;
 
 /**
  * 主要是在此如果会话的属性修改了 就标识下其修改了 然后方便 OnlineSessionDao同步

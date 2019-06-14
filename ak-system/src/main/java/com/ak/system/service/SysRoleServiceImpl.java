@@ -13,6 +13,7 @@ import com.ak.common.constant.UserConstants;
 import com.ak.common.core.text.Convert;
 import com.ak.common.exception.BusinessException;
 import com.ak.common.utils.StringUtils;
+import com.ak.common.utils.spring.SpringUtils;
 import com.ak.system.domain.SysRole;
 import com.ak.system.domain.SysRoleDept;
 import com.ak.system.domain.SysRoleMenu;
@@ -100,7 +101,7 @@ public class SysRoleServiceImpl implements ISysRoleService {
 	 */
 	@Override
 	public List<SysRole> selectRoleAll() {
-		return selectRoleList(new SysRole());
+		return SpringUtils.getAopProxy(this).selectRoleList(new SysRole());
 	}
 
 	/**

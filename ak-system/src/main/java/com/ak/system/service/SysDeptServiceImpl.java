@@ -2,9 +2,11 @@ package com.ak.system.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.ak.common.annotation.DataScope;
 import com.ak.common.constant.UserConstants;
 import com.ak.common.core.domain.Ztree;
@@ -13,7 +15,6 @@ import com.ak.common.utils.StringUtils;
 import com.ak.system.domain.SysDept;
 import com.ak.system.domain.SysRole;
 import com.ak.system.mapper.SysDeptMapper;
-import com.ak.system.service.ISysDeptService;
 
 /**
  * 部门管理 服务实现
@@ -96,7 +97,7 @@ public class SysDeptServiceImpl implements ISysDeptService {
 			if (UserConstants.DEPT_NORMAL.equals(dept.getStatus())) {
 				Ztree ztree = new Ztree();
 				ztree.setId(dept.getDeptId());
-				ztree.setPId(dept.getParentId());
+				ztree.setpId(dept.getParentId());
 				ztree.setName(dept.getDeptName());
 				ztree.setTitle(dept.getDeptName());
 				if (isCheck) {

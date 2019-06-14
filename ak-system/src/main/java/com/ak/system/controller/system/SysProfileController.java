@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.ak.common.annotation.Log;
 import com.ak.common.config.Global;
 import com.ak.common.core.controller.BaseController;
@@ -21,8 +20,8 @@ import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.file.FileUploadUtils;
 import com.ak.framework.shiro.service.SysPasswordService;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysUser;
-import com.ak.system.service.system.ISysUserService;
+import com.ak.system.domain.SysUser;
+import com.ak.system.service.ISysUserService;
 
 /**
  * 个人信息 业务处理

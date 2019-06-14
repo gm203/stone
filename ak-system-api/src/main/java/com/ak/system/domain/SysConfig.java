@@ -2,7 +2,6 @@ package com.ak.system.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
 import com.ak.common.annotation.Excel;
 import com.ak.common.core.domain.BaseEntity;
 

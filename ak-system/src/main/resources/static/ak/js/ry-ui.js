@@ -38,6 +38,7 @@
         		    rightFixedColumns: false,
         		    rightFixedNumber: 0,
         		    queryParams: $.table.queryParams,
+        		    rowStyle: {},
         		};
             	var options = $.extend(defaults, options);
                 $.table._option = options;
@@ -70,12 +71,14 @@
                     showToggle: options.showToggle,                     // 是否显示详细视图和列表视图的切换按钮
                     showExport: options.showExport,                     // 是否支持导出文件
                     clickToSelect: options.clickToSelect,				// 是否启用点击选中行
+                    onClickRow: options.onClickRow,                     // 点击某行触发的事件
                     rememberSelected: options.rememberSelected,         // 启用翻页记住前面的选择
                     fixedColumns: options.fixedColumns,                 // 是否启用冻结列（左侧）
                     fixedNumber: options.fixedNumber,                   // 列冻结的个数（左侧）
                     rightFixedColumns: options.rightFixedColumns,       // 是否启用冻结列（右侧）
                     rightFixedNumber: options.rightFixedNumber,         // 列冻结的个数（右侧）
                     queryParams: options.queryParams,                   // 传递参数（*）
+                    rowStyle: options.rowStyle,                         // 通过自定义函数设置行样式
                     columns: options.columns,                           // 显示列信息（*）
                     responseHandler: $.table.responseHandler,           // 在加载服务器发送来的数据之前处理函数
                     onLoadSuccess: $.table.onLoadSuccess,               // 当所有数据被加载时触发处理函数
@@ -129,6 +132,23 @@
             			selectionIds = _[func](selectionIds, rowIds);
             		}
             	});
+            	// 图片预览事件
+            	$("#" + $.table._option.id).on('click', '.img-circle', function() {
+    			    var src = $(this).attr('src');
+    			    var target = $(this).data('target');
+    			    if($.common.equals("self", target)) {
+    			    	layer.open({
+        			        title: false,
+        			        type: 1,
+        			        closeBtn: true,
+        			        shadeClose: true,
+        			        area: ['auto', 'auto'],
+        			        content: "<img src='" + src + "' />"
+        			    });
+    			    } else if ($.common.equals("blank", target)) {
+    			        window.open(src);
+    			    }
+    			});
             },
             // 当所有数据被加载时触发
             onLoadSuccess: function(data) {
@@ -159,7 +179,6 @@
 					_text = _value;
 					return _text;
 				}
-				return '<a href="#" class="tooltip-show" data-toggle="tooltip" title="' + _value + '">' + _text +'</a>';
 			},
 			// 下拉按钮切换
 			dropdownToggle: function (value) {
@@ -173,8 +192,19 @@
 				actions.push('</div>');
 				return actions.join('');
 			},
+			// 图片预览
+			imageView: function (value, path, target) {
+				var _path = $.common.isEmpty(path) ? '/profile/upload' : path;
+				// blank or self
+				var _target = $.common.isEmpty(target) ? 'self' : target;
+				if ($.common.isNotEmpty(value)) {
+					return $.common.sprintf("<img class='img-circle img-xs' data-target='%s' src='%s/%s'/>", _target, _path, value);
+				} else {
+					return $.common.nullToStr(value);
+				}
+			},
             // 搜索-默认第一个form
-            search: function(formId) {
+            search: function(formId, data) {
             	var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
     		    var params = $("#" + $.table._option.id).bootstrapTable('getOptions');
     		    params.queryParams = function(params) {
@@ -182,6 +212,11 @@
                     $.each($("#" + currentId).serializeArray(), function(i, field) {
                         search[field.name] = field.value;
                     });
+                    if($.common.isNotEmpty(data)){
+	                    $.each(data, function(key) {
+	                        search[key] = data[key];
+	                    });
+                    }
                     search.pageSize = params.limit;
                     search.pageNum = params.offset / params.limit + 1;
                     search.searchValue = params.search;
@@ -386,6 +421,13 @@
             refresh: function() {
             	$._treeTable.bootstrapTreeTable('refresh');
             },
+            // 查询表格树指定列值
+            selectColumns: function(column) {
+            	var rows = $.map($('#' + $.table._option.id).bootstrapTreeTable('getSelections'), function (row) {
+        	        return row[column];
+        	    });
+            	return $.common.uniqueFn(rows);
+            },
         },
         // 表单封装处理
     	form: {
@@ -501,8 +543,7 @@
             	layer.confirm(content, {
         	        icon: 3,
         	        title: "系统提示",
-        	        btn: ['确认', '取消'],
-        	        btnclass: ['btn btn-primary', 'btn btn-danger'],
+        	        btn: ['确认', '取消']
         	    }, function (index) {
         	    	layer.close(index);
         	        callBack(true);
@@ -557,6 +598,7 @@
             	var _title = $.common.isEmpty(options.title) ? "系统窗口" : options.title; 
                 var _width = $.common.isEmpty(options.width) ? "800" : options.width; 
                 var _height = $.common.isEmpty(options.height) ? ($(window).height() - 50) : options.height;
+                var _btn = ['<i class="fa fa-check"></i> 确认', '<i class="fa fa-close"></i> 关闭'];
                 layer.open({
                     type: 2,
             		maxmin: true,
@@ -566,7 +608,7 @@
                     area: [_width + 'px', _height + 'px'],
                     content: _url,
                     shadeClose: true,
-                    btn: ['<i class="fa fa-check"></i> 确认', '<i class="fa fa-close"></i> 关闭'],
+                    btn: $.common.isEmpty(options.btn) ? _btn : options.btn,
                     yes: function (index, layero) {
                         options.callBack(index, layero)
                     }, cancel: function () {
@@ -647,7 +689,7 @@
         // 操作封装处理
         operate: {
         	// 提交数据
-        	submit: function(url, type, dataType, data) {
+        	submit: function(url, type, dataType, data, callback) {
             	var config = {
         	        url: url,
         	        type: type,
@@ -657,18 +699,21 @@
         	        	$.modal.loading("正在处理中，请稍后...");
         	        },
         	        success: function(result) {
+        	        	if (typeof callback == "function") {
+        	        	    callback(result);
+        	        	}
         	        	$.operate.ajaxSuccess(result);
         	        }
         	    };
         	    $.ajax(config)
             },
             // post请求传输
-            post: function(url, data) {
-            	$.operate.submit(url, "post", "json", data);
+            post: function(url, data, callback) {
+            	$.operate.submit(url, "post", "json", data, callback);
             },
             // get请求传输
-            get: function(url) {
-            	$.operate.submit(url, "get", "json", "");
+            get: function(url, callback) {
+            	$.operate.submit(url, "get", "json", "", callback);
             },
             // 详细信息
             detail: function(id, width, height) {
@@ -793,7 +838,7 @@
                 return url;
             },
             // 保存信息 刷新表格
-            save: function(url, data) {
+            save: function(url, data, callback) {
             	var config = {
         	        url: url,
         	        type: "post",
@@ -804,13 +849,16 @@
         	        	$.modal.disable();
         	        },
         	        success: function(result) {
+        	        	if (typeof callback == "function") {
+        	        	    callback(result);
+        	        	}
         	        	$.operate.successCallback(result);
         	        }
         	    };
         	    $.ajax(config)
             },
             // 保存信息 弹出提示框
-            saveModal: function(url, data) {
+            saveModal: function(url, data, callback) {
             	var config = {
         	        url: url,
         	        type: "post",
@@ -820,6 +868,9 @@
         	        	$.modal.loading("正在处理中，请稍后...");
         	        },
         	        success: function(result) {
+        	        	if (typeof callback == "function") {
+        	        	    callback(result);
+        	        	}
         	        	if (result.code == web_status.SUCCESS) {
 	                        $.modal.alertSuccess(result.msg)
 	                    } else if (result.code == web_status.WARNING) {
@@ -833,7 +884,7 @@
         	    $.ajax(config)
             },
             // 保存选项卡信息
-            saveTab: function(url, data) {
+            saveTab: function(url, data, callback) {
             	var config = {
         	        url: url,
         	        type: "post",
@@ -843,6 +894,9 @@
         	        	$.modal.loading("正在处理中，请稍后...");
         	        },
         	        success: function(result) {
+        	        	if (typeof callback == "function") {
+        	        	    callback(result);
+        	        	}
         	        	$.operate.successTabCallback(result);
         	        }
         	    };
@@ -1198,6 +1252,13 @@
                     }
                 }
                 return result;
+            },
+            // 数组中的所有元素放入一个字符串
+            join: function(array, separator) {
+            	if ($.common.isEmpty(array)) {
+            	    return null;
+            	}
+                return array.join(separator);
             }
         }
     });

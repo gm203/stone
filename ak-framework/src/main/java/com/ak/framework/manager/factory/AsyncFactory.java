@@ -1,8 +1,10 @@
 package com.ak.framework.manager.factory;
 
 import java.util.TimerTask;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.utils.AddressUtils;
 import com.ak.common.utils.ServletUtils;
@@ -10,12 +12,12 @@ import com.ak.common.utils.spring.SpringUtils;
 import com.ak.framework.shiro.session.OnlineSession;
 import com.ak.framework.util.LogUtils;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysLogininfor;
-import com.ak.system.domain.system.SysOperLog;
-import com.ak.system.domain.system.SysUserOnline;
-import com.ak.system.service.system.ISysLogininforService;
-import com.ak.system.service.system.ISysOperLogService;
-import com.ak.system.service.system.ISysUserOnlineService;
+import com.ak.system.domain.SysLogininfor;
+import com.ak.system.domain.SysOperLog;
+import com.ak.system.domain.SysUserOnline;
+import com.ak.system.service.ISysLogininforService;
+import com.ak.system.service.ISysOperLogService;
+import com.ak.system.service.ISysUserOnlineService;
 
 import eu.bitwalker.useragentutils.UserAgent;
 

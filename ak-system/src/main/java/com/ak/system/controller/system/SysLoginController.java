@@ -2,7 +2,6 @@ package com.ak.system.controller.system;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.ak.common.core.controller.BaseController;
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.utils.ServletUtils;
@@ -53,6 +51,6 @@ public class SysLoginController extends BaseController {
 
 	@GetMapping("/unauth")
 	public String unauth() {
-		return "/error/unauth";
+		return "error/unauth";
 	}
 }

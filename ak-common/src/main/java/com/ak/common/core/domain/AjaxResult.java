@@ -1,10 +1,8 @@
 package com.ak.common.core.domain;
 
 import java.util.HashMap;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
 import com.ak.common.utils.StringUtils;
 
 /**

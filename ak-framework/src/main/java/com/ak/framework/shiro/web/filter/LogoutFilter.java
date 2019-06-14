@@ -2,17 +2,19 @@ package com.ak.framework.shiro.web.filter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+
 import org.apache.shiro.session.SessionException;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.utils.MessageUtils;
 import com.ak.common.utils.StringUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysUser;
+import com.ak.system.domain.SysUser;
 
 /**
  * 退出过滤器

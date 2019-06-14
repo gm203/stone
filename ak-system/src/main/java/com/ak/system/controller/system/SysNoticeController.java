@@ -1,7 +1,6 @@
 package com.ak.system.controller.system;
 
 import java.util.List;
-
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,15 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.ak.common.annotation.Log;
 import com.ak.common.core.controller.BaseController;
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.core.page.TableDataInfo;
 import com.ak.common.enums.BusinessType;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysNotice;
-import com.ak.system.service.system.ISysNoticeService;
+import com.ak.system.domain.SysNotice;
+import com.ak.system.service.ISysNoticeService;
 
 /**
  * 公告 信息操作处理

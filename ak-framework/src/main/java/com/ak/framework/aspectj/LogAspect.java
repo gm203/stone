@@ -2,6 +2,7 @@ package com.ak.framework.aspectj;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -12,6 +13,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
 import com.ak.common.annotation.Log;
 import com.ak.common.enums.BusinessStatus;
 import com.ak.common.json.JSON;
@@ -20,8 +22,8 @@ import com.ak.common.utils.StringUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysOperLog;
-import com.ak.system.domain.system.SysUser;
+import com.ak.system.domain.SysOperLog;
+import com.ak.system.domain.SysUser;
 
 /**
  * 操作日志记录处理

@@ -1,30 +1,28 @@
 /**
  * 通用方法封装处理
- * Copyright (c) 2019
+ * Copyright (c) 2019 
  */
 $(function() {
 	// select2复选框事件绑定
 	if ($.fn.select2 !== undefined) {
+        $.fn.select2.defaults.set( "theme", "bootstrap" );
 		$("select.form-control:not(.noselect2)").each(function () {
 			$(this).select2().on("change", function () {
 				$(this).valid();
 			})
 		})
 	}
-	// checkbox 事件绑定
-	if ($(".check-box").length > 0) {
-	    $(".check-box").iCheck({
-	    	checkboxClass: 'icheckbox-blue',
-			radioClass: 'iradio-blue',
-	    })
+	
+	// iCheck单选框及复选框事件绑定
+	if ($.fn.iCheck !== undefined) {
+		$(".check-box:not(.noicheck),.radio-box:not(.noicheck)").each(function() {
+            $(this).iCheck({
+                checkboxClass: 'icheckbox-blue',
+                radioClass: 'iradio-blue',
+            })
+        })
 	}
-	// radio 事件绑定
-	if ($(".radio-box").length > 0) {
-	    $(".radio-box").iCheck({
-	    	checkboxClass: 'icheckbox-blue',
-			radioClass: 'iradio-blue',
-	    })
-	}
+	 
 	// laydate 时间控件绑定
 	if ($(".select-time").length > 0) {
 		layui.use('laydate', function() {
@@ -139,6 +137,12 @@ $(function() {
 	    }
 	    expandFlag = expandFlag ? false: true;
 	})
+	// 按下ESC按钮关闭弹层
+	$('body', document).on('keyup', function(e) {
+	    if (e.which === 27) {
+	        $.modal.closeAll();
+	    }
+	});
 });
 
 /** 刷新选项卡 */
@@ -231,10 +235,12 @@ var log = {
 $.ajaxSetup({
     complete: function(XMLHttpRequest, textStatus) {
         if (textStatus == 'timeout') {
-            $.modal.alertWarning("服务器超时，请稍后再试！");
+        	$.modal.alertWarning("服务器超时，请稍后再试！");
+        	$.modal.enable();
             $.modal.closeLoading();
-        } else if (textStatus == "parsererror") {
-            $.modal.alertWarning("服务器错误，请联系管理员！");
+        } else if (textStatus == "parsererror" || textStatus == "error") {
+        	$.modal.alertWarning("服务器错误，请联系管理员！");
+        	$.modal.enable();
             $.modal.closeLoading();
         }
     }

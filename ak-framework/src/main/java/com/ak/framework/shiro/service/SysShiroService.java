@@ -1,13 +1,15 @@
 package com.ak.framework.shiro.service;
 
 import java.io.Serializable;
+
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.ak.common.utils.StringUtils;
 import com.ak.framework.shiro.session.OnlineSession;
-import com.ak.system.domain.system.SysUserOnline;
-import com.ak.system.service.system.ISysUserOnlineService;
+import com.ak.system.domain.SysUserOnline;
+import com.ak.system.service.ISysUserOnlineService;
 
 /**
  * 会话db操作处理

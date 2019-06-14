@@ -50,5 +50,4 @@ public class SysUserOnline extends BaseEntity {
 
 	/** 在线状态 */
 	private OnlineStatus status = OnlineStatus.on_line;
-
 }

@@ -168,7 +168,7 @@ public class RedisController extends BaseController {
 	public AjaxResult getKyesAll() {
 		Set<String> keys = redisUtils.getKyesAll();
 		AjaxResult result = success("获取Keys成功！");
-		result.setData(keys);
+		result.setData(redisUtils.get(keys.stream().findFirst().get()));
 		return result;
 	}
 

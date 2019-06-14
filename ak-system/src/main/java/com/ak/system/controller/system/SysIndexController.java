@@ -1,18 +1,16 @@
 package com.ak.system.controller.system;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import com.ak.common.config.Global;
 import com.ak.common.core.controller.BaseController;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysMenu;
-import com.ak.system.domain.system.SysUser;
-import com.ak.system.service.system.ISysMenuService;
+import com.ak.system.domain.SysMenu;
+import com.ak.system.domain.SysUser;
+import com.ak.system.service.ISysMenuService;
 
 /**
  * 首页 业务处理

@@ -3,6 +3,7 @@ package com.ak.framework.shiro.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.constant.UserConstants;
@@ -18,8 +19,8 @@ import com.ak.common.utils.ServletUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysUser;
-import com.ak.system.service.system.ISysUserService;
+import com.ak.system.domain.SysUser;
+import com.ak.system.service.ISysUserService;
 
 /**
  * 登录校验方法

@@ -17,7 +17,7 @@ import com.ak.common.config.Global;
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 @ServletComponentScan(basePackages = { "com.ak" })
 @ComponentScan(basePackages = { "com.ak" })
-@MapperScan("com.ak.*.mapper.**")
+@MapperScan("com.ak.*.mapper")
 public class StoneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StoneApplication.class, args);

@@ -63,7 +63,7 @@ public class Ztree implements Serializable {
 	public void setNocheck(boolean nocheck) {
 		this.nocheck = nocheck;
 	}
-	
+
 	public Long getpId() {
 		return pId;
 	}

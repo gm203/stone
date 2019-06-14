@@ -1,11 +1,13 @@
 package com.ak.framework.manager;
 
-import com.ak.framework.shiro.web.session.SpringSessionValidationScheduler;
+import javax.annotation.PreDestroy;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import javax.annotation.PreDestroy;
+
+import com.ak.framework.shiro.web.session.SpringSessionValidationScheduler;
 
 /**
  * 确保应用退出时能关闭后台线程

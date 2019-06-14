@@ -31,6 +31,9 @@ public class SysOperLog extends BaseEntity {
 	@Excel(name = "业务类型", readConverterExp = "0=其它,1=新增,2=修改,3=删除,4=授权,5=导出,6=导入,7=强退,8=生成代码,9=清空数据")
 	private Integer businessType;
 
+	/** 业务类型数组 */
+	private Integer[] businessTypes;
+
 	/** 请求方法 */
 	@Excel(name = "请求方法")
 	private String method;
@@ -78,7 +81,8 @@ public class SysOperLog extends BaseEntity {
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append("operId", getOperId())
-				.append("title", getTitle()).append("businessType", getBusinessType()).append("method", getMethod())
+				.append("title", getTitle()).append("businessType", getBusinessType())
+				.append("businessTypes", getBusinessTypes()).append("method", getMethod())
 				.append("operatorType", getOperatorType()).append("operName", getOperName())
 				.append("deptName", getDeptName()).append("operUrl", getOperUrl()).append("operIp", getOperIp())
 				.append("operLocation", getOperLocation()).append("operParam", getOperParam())

@@ -1,6 +1,7 @@
 package com.ak.framework.aspectj;
 
 import java.lang.reflect.Method;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,12 +9,13 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
+
 import com.ak.common.annotation.DataScope;
 import com.ak.common.core.domain.BaseEntity;
 import com.ak.common.utils.StringUtils;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysRole;
-import com.ak.system.domain.system.SysUser;
+import com.ak.system.domain.SysRole;
+import com.ak.system.domain.SysUser;
 
 /**
  * 数据过滤处理
@@ -32,6 +34,11 @@ public class DataScopeAspect {
 	 * 自定数据权限
 	 */
 	public static final String DATA_SCOPE_CUSTOM = "2";
+
+	/**
+	 * 部门数据权限
+	 */
+	public static final String DATA_SCOPE_DEPT = "3";
 
 	/**
 	 * 数据权限过滤关键字
@@ -83,6 +90,8 @@ public class DataScopeAspect {
 				sqlString.append(StringUtils.format(
 						" OR {}.dept_id IN ( SELECT dept_id FROM sys_role_dept WHERE role_id = {} ) ", alias,
 						role.getRoleId()));
+			} else if (DATA_SCOPE_DEPT.equals(dataScope)) {
+				sqlString.append(StringUtils.format(" OR {}.dept_id = {} ", alias, user.getDeptId()));
 			}
 		}
 

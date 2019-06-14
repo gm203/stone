@@ -1,11 +1,12 @@
 package com.ak.framework.web.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ak.system.domain.system.SysDictData;
-import com.ak.system.service.system.ISysDictDataService;
+import com.ak.system.domain.SysDictData;
+import com.ak.system.service.ISysDictDataService;
 
 /**
  * ak首创 html调用 thymeleaf 实现字典读取

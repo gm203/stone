@@ -2,6 +2,7 @@ package com.ak.framework.shiro.realm;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -28,9 +29,9 @@ import com.ak.common.exception.user.UserPasswordNotMatchException;
 import com.ak.common.exception.user.UserPasswordRetryLimitExceedException;
 import com.ak.framework.shiro.service.SysLoginService;
 import com.ak.framework.util.ShiroUtils;
-import com.ak.system.domain.system.SysUser;
-import com.ak.system.service.system.ISysMenuService;
-import com.ak.system.service.system.ISysRoleService;
+import com.ak.system.domain.SysUser;
+import com.ak.system.service.ISysMenuService;
+import com.ak.system.service.ISysRoleService;
 
 /**
  * 自定义Realm 处理登录 权限
