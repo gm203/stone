@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
  * DAO支持类实现
  * @version 2014-05-16
  */
-public interface BaseDao<T> extends InterfaceDao {
+public interface BaseDao<T> {
 
 	/**
 	 * 获取单条数据
