@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 表格相关
  * 
- * @author ruoyi
+ * @author
  */
 @Controller
 @RequestMapping("/demo/table")
