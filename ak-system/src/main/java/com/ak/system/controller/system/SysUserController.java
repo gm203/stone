@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.ak.common.annotation.Log;
+import com.ak.common.constant.UserConstants;
 import com.ak.common.core.controller.BaseController;
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.core.page.TableDataInfo;
@@ -112,6 +113,9 @@ public class SysUserController extends BaseController {
 	public AjaxResult addSave(SysUser user) {
 		if (StringUtils.isNotNull(user.getUserId()) && SysUser.isAdmin(user.getUserId())) {
 			return error("不允许修改超级管理员用户");
+		}
+		if (UserConstants.USER_NAME_NOT_UNIQUE.equals(userService.checkLoginNameUnique(user.getLoginName()))) {
+			return error("保存用户'" + user.getLoginName() + "'失败，登录账号已存在");
 		}
 		user.setSalt(ShiroUtils.randomSalt());
 		user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));

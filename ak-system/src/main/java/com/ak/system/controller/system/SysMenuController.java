@@ -43,7 +43,8 @@ public class SysMenuController extends BaseController {
 	@GetMapping("/list")
 	@ResponseBody
 	public List<SysMenu> list(SysMenu menu) {
-		List<SysMenu> menuList = menuService.selectMenuList(menu);
+		Long userId = ShiroUtils.getUserId();
+		List<SysMenu> menuList = menuService.selectMenuList(menu, userId);
 		return menuList;
 	}
 
@@ -140,7 +141,8 @@ public class SysMenuController extends BaseController {
 	@GetMapping("/roleMenuTreeData")
 	@ResponseBody
 	public List<Ztree> roleMenuTreeData(SysRole role) {
-		List<Ztree> ztrees = menuService.roleMenuTreeData(role);
+		Long userId = ShiroUtils.getUserId();
+		List<Ztree> ztrees = menuService.roleMenuTreeData(role, userId);
 		return ztrees;
 	}
 
@@ -149,8 +151,9 @@ public class SysMenuController extends BaseController {
 	 */
 	@GetMapping("/menuTreeData")
 	@ResponseBody
-	public List<Ztree> menuTreeData(SysRole role) {
-		List<Ztree> ztrees = menuService.menuTreeData();
+	public List<Ztree> menuTreeData() {
+		Long userId = ShiroUtils.getUserId();
+		List<Ztree> ztrees = menuService.menuTreeData(userId);
 		return ztrees;
 	}
 

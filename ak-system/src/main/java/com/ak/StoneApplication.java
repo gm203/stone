@@ -20,6 +20,7 @@ import com.ak.common.config.Global;
 @MapperScan("com.ak.*.mapper")
 public class StoneApplication {
 	public static void main(String[] args) {
+		// System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(StoneApplication.class, args);
 		StringBuilder sb = new StringBuilder();
 		sb.append("\r\n==============================================================\r\n");

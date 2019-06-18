@@ -106,7 +106,7 @@ public class RedisController extends BaseController {
 	@ApiOperation(value = "Redis get接口(Content-Type为text/html)", notes = "Redis get接口(Content-Type为text/html)")
 	public AjaxResult get(@RequestParam(required = false) String key) {
 		if (redisUtils.exists(key)) {
-			return new AjaxResult(Type.SUCCESS,"成功",redisUtils.get(key));
+			return new AjaxResult(Type.SUCCESS, "成功", redisUtils.get(key));
 		} else {
 			return error("不存在！");
 		}

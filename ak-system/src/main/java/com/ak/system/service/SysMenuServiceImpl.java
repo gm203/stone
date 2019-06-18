@@ -60,8 +60,15 @@ public class SysMenuServiceImpl implements ISysMenuService {
 	 * @return 所有菜单信息
 	 */
 	@Override
-	public List<SysMenu> selectMenuList(SysMenu menu) {
-		return menuMapper.selectMenuList(menu);
+	public List<SysMenu> selectMenuList(SysMenu menu, Long userId) {
+		List<SysMenu> menuList = null;
+		if (SysUser.isAdmin(userId)) {
+			menuList = menuMapper.selectMenuList(menu);
+		} else {
+			menu.getParams().put("userId", userId);
+			menuList = menuMapper.selectMenuListByUserId(menu);
+		}
+		return menuList;
 	}
 
 	/**
@@ -70,8 +77,14 @@ public class SysMenuServiceImpl implements ISysMenuService {
 	 * @return 所有菜单信息
 	 */
 	@Override
-	public List<SysMenu> selectMenuAll() {
-		return menuMapper.selectMenuAll();
+	public List<SysMenu> selectMenuAll(Long userId) {
+		List<SysMenu> menuList = null;
+		if (SysUser.isAdmin(userId)) {
+			menuList = menuMapper.selectMenuAll();
+		} else {
+			menuList = menuMapper.selectMenuAllByUserId(userId);
+		}
+		return menuList;
 	}
 
 	/**
@@ -99,10 +112,10 @@ public class SysMenuServiceImpl implements ISysMenuService {
 	 * @return 菜单列表
 	 */
 	@Override
-	public List<Ztree> roleMenuTreeData(SysRole role) {
+	public List<Ztree> roleMenuTreeData(SysRole role, Long userId) {
 		Long roleId = role.getRoleId();
 		List<Ztree> ztrees = new ArrayList<Ztree>();
-		List<SysMenu> menuList = menuMapper.selectMenuAll();
+		List<SysMenu> menuList = selectMenuAll(userId);
 		if (StringUtils.isNotNull(roleId)) {
 			List<String> roleMenuList = menuMapper.selectMenuTree(roleId);
 			ztrees = initZtree(menuList, roleMenuList, true);
@@ -118,8 +131,8 @@ public class SysMenuServiceImpl implements ISysMenuService {
 	 * @return 菜单列表
 	 */
 	@Override
-	public List<Ztree> menuTreeData() {
-		List<SysMenu> menuList = menuMapper.selectMenuAll();
+	public List<Ztree> menuTreeData(Long userId) {
+		List<SysMenu> menuList = selectMenuAll(userId);
 		List<Ztree> ztrees = initZtree(menuList);
 		return ztrees;
 	}
@@ -130,9 +143,9 @@ public class SysMenuServiceImpl implements ISysMenuService {
 	 * @return 权限列表
 	 */
 	@Override
-	public LinkedHashMap<String, String> selectPermsAll() {
+	public LinkedHashMap<String, String> selectPermsAll(Long userId) {
 		LinkedHashMap<String, String> section = new LinkedHashMap<>();
-		List<SysMenu> permissions = menuMapper.selectMenuAll();
+		List<SysMenu> permissions = selectMenuAll(userId);
 		if (StringUtils.isNotEmpty(permissions)) {
 			for (SysMenu menu : permissions) {
 				section.put(menu.getUrl(), MessageFormat.format(PREMISSION_STRING, menu.getPerms()));

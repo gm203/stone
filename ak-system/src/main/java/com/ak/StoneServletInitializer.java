@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 public class StoneServletInitializer extends SpringBootServletInitializer {
 	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(StoneApplication.class);
-	}
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(StoneApplication.class);
+    }
 }
