@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.ak.common.utils.security.PermissionUtils;
 
 /**
- * ak首创 js调用 thymeleaf 实现按钮权限可见性
+ * js调用 thymeleaf 实现按钮权限可见性
  * 
  * @author ak
  */

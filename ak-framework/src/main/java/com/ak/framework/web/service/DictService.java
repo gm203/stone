@@ -9,7 +9,7 @@ import com.ak.system.domain.SysDictData;
 import com.ak.system.service.ISysDictDataService;
 
 /**
- * ak首创 html调用 thymeleaf 实现字典读取
+ * html调用 thymeleaf 实现字典读取
  * 
  * @author ak
  */

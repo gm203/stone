@@ -21,6 +21,8 @@ public class TableDataInfo implements Serializable {
 	private long total;
 	
 	/** 列表数据 */
+	@Getter
+	@Setter
 	private List<?> rows;
 	
 	/** 消息状态码 */
@@ -42,13 +44,5 @@ public class TableDataInfo implements Serializable {
 	public TableDataInfo(List<?> list, int total) {
 		this.rows = list;
 		this.total = total;
-	}
-
-	public List<?> getRows() {
-		return rows;
-	}
-
-	public void setRows(List<?> rows) {
-		this.rows = rows;
 	}
 }

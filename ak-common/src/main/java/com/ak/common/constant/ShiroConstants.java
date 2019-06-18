@@ -47,7 +47,7 @@ public interface ShiroConstants {
 	public static final String CURRENT_ENABLED = "captchaEnabled";
 
 	/**
-	 * 验证码开关
+	 * 验证码类型
 	 */
 	public static final String CURRENT_TYPE = "captchaType";
 
@@ -60,4 +60,14 @@ public interface ShiroConstants {
 	 * 验证码错误
 	 */
 	public static final String CAPTCHA_ERROR = "captchaError";
+
+	/**
+	 * 登录记录缓存
+	 */
+	public static final String LOGINRECORDCACHE = "loginRecordCache";
+
+	/**
+	 * 系统活跃用户缓存
+	 */
+	public static final String SYS_USERCACHE = "sys-userCache";
 }

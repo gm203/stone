@@ -1,14 +1,15 @@
 package com.ak.system.domain;
 
+import java.util.Date;
+import java.util.List;
+
 import com.ak.common.annotation.Excel;
 import com.ak.common.annotation.Excel.Type;
+import com.ak.common.annotation.Excels;
 import com.ak.common.core.domain.BaseEntity;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * 用户对象 sys_user
@@ -76,7 +77,8 @@ public class SysUser extends BaseEntity {
 	private Date loginDate;
 
 	/** 部门对象 */
-	@Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT)
+	@Excels({ @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
+			@Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT) })
 	private SysDept dept;
 
 	private List<SysRole> roles;
@@ -104,29 +106,5 @@ public class SysUser extends BaseEntity {
 
 	public void setDept(SysDept dept) {
 		this.dept = dept;
-	}
-
-	public List<SysRole> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<SysRole> roles) {
-		this.roles = roles;
-	}
-
-	public Long[] getRoleIds() {
-		return roleIds;
-	}
-
-	public void setRoleIds(Long[] roleIds) {
-		this.roleIds = roleIds;
-	}
-
-	public Long[] getPostIds() {
-		return postIds;
-	}
-
-	public void setPostIds(Long[] postIds) {
-		this.postIds = postIds;
 	}
 }

@@ -2,7 +2,6 @@ package com.ak.quartz.service.impl;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
-import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +36,7 @@ public class SysJobServiceImpl implements ISysJobService {
 	public void init() throws SchedulerException, TaskException {
 		List<SysJob> jobList = jobMapper.selectJobAll();
 		for (SysJob job : jobList) {
-			CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, job.getJobId());
-			// 如果不存在，则创建
-			if (cronTrigger == null) {
-				ScheduleUtils.createScheduleJob(scheduler, job);
-			} else {
-				ScheduleUtils.updateScheduleJob(scheduler, job);
-			}
+			ScheduleUtils.updateScheduleJob(scheduler, job);
 		}
 	}
 

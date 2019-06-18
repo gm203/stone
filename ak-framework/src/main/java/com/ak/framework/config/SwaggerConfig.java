@@ -2,14 +2,8 @@ package com.ak.framework.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.ak.common.config.Global;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -27,21 +21,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-
-	Predicate<RequestHandler> selector1 = RequestHandlerSelectors.basePackage("com.ak.visualization.api");
-	Predicate<RequestHandler> selector2 = RequestHandlerSelectors.basePackage("com.ak.system.controller.tool");
-
 	/**
 	 * 创建API
 	 */
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("AK Swagger2")
-				// 详细定制
-				.apiInfo(apiInfo()).select()
-				// 指定当前包路径
-				.apis(Predicates.or(selector1, selector2)).apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+				// 用来创建该API的基本信息，展示在文档的页面中（自定义展示的信息）
+				.apiInfo(apiInfo())
+				// 设置哪些接口暴露给Swagger展示
+				.select()
+				// 扫描所有有注解的api，用这种方式更灵活
 				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+				// 扫描指定包中的swagger注解
+				// .apis(RequestHandlerSelectors.basePackage("com.ak.project.tool.swagger"))
 				// 扫描所有 .apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();
 	}
@@ -51,7 +44,14 @@ public class SwaggerConfig {
 	 */
 	private ApiInfo apiInfo() {
 		// 用ApiInfoBuilder进行定制
-		return new ApiInfoBuilder().title("标题：AK后台管理系统_接口文档").description("描述：用于管理项目对外的接口")
-				.contact(new Contact(Global.getName(), null, null)).version("版本号:" + Global.getVersion()).build();
+		return new ApiInfoBuilder()
+				// 设置标题
+				.title("标题：AK后台管理系统_接口文档")
+				// 描述
+				.description("描述：用于管理项目对外的接口")
+				// 作者信息
+				.contact(new Contact(Global.getName(), null, null))
+				// 版本
+				.version("版本号:" + Global.getVersion()).build();
 	}
 }

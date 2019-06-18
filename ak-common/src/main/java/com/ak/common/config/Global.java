@@ -81,6 +81,13 @@ public class Global {
 	}
 
 	/**
+	 * 实例演示开关
+	 */
+	public static String isDemoEnabled() {
+		return StringUtils.nvl(getConfig("ak.demoEnabled"), "true");
+	}
+
+	/**
 	 * 获取ip地址开关
 	 */
 	public static Boolean isAddressEnabled() {

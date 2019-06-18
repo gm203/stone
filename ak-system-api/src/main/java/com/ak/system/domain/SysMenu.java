@@ -38,6 +38,9 @@ public class SysMenu extends BaseEntity {
 	/** 菜单URL */
 	private String url;
 
+	/** 打开方式：menuItem页签 menuBlank新窗口 */
+	private String target;
+
 	/** 类型:0目录,1菜单,2按钮 */
 	private String menuType;
 
@@ -53,21 +56,14 @@ public class SysMenu extends BaseEntity {
 	/** 子菜单 */
 	private List<SysMenu> children = new ArrayList<SysMenu>();
 	
-	public List<SysMenu> getChildren() {
-		return children;
-	}
-
-	public void setChildren(List<SysMenu> children) {
-		this.children = children;
-	}
-	
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append("menuId", getMenuId())
 				.append("menuName", getMenuName()).append("parentId", getParentId()).append("orderNum", getOrderNum())
-				.append("url", getUrl()).append("menuType", getMenuType()).append("visible", getVisible())
-				.append("perms", getPerms()).append("icon", getIcon()).append("createBy", getCreateBy())
-				.append("createTime", getCreateTime()).append("updateBy", getUpdateBy())
-				.append("updateTime", getUpdateTime()).append("remark", getRemark()).toString();
+				.append("url", getUrl()).append("target", getTarget()).append("menuType", getMenuType())
+				.append("visible", getVisible()).append("perms", getPerms()).append("icon", getIcon())
+				.append("createBy", getCreateBy()).append("createTime", getCreateTime())
+				.append("updateBy", getUpdateBy()).append("updateTime", getUpdateTime()).append("remark", getRemark())
+				.toString();
 	}
 }

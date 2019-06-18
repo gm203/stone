@@ -34,8 +34,8 @@ public class SysRole extends BaseEntity {
 	@Excel(name = "角色排序")
 	private String roleSort;
 
-	/** 数据范围（1：所有数据权限；2：自定数据权限） */
-	@Excel(name = "数据范围", readConverterExp = "1=所有数据权限,2=自定义数据权限")
+	/** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限） */
+	@Excel(name = "数据范围", readConverterExp = "1=所有数据权限,2=自定义数据权限,3=本部门数据权限,4=本部门及以下数据权限")
 	private String dataScope;
 
 	/** 角色状态（0正常 1停用） */
@@ -51,22 +51,6 @@ public class SysRole extends BaseEntity {
 	/** 部门组（数据权限） */
 	private Long[] deptIds;
 	
-	public Long[] getMenuIds() {
-		return menuIds;
-	}
-
-	public void setMenuIds(Long[] menuIds) {
-		this.menuIds = menuIds;
-	}
-
-	public Long[] getDeptIds() {
-		return deptIds;
-	}
-
-	public void setDeptIds(Long[] deptIds) {
-		this.deptIds = deptIds;
-	}
-
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE).append("roleId", getRoleId())

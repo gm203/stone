@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.ak.system.service.ISysConfigService;
 
 /**
- * ak首创 html调用 thymeleaf 实现参数管理
+ * html调用 thymeleaf 实现参数管理
  * 
  * @author ak
  */
