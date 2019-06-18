@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.ak.common.config.Global;
-
 /**
  * 启动程序
  * 
@@ -24,7 +22,7 @@ public class StoneApplication {
 		SpringApplication.run(StoneApplication.class, args);
 		StringBuilder sb = new StringBuilder();
 		sb.append("\r\n==============================================================\r\n");
-		sb.append("\r\n   欢迎使用 "+ Global.getConfig("ak.name")+"  - Powered By Vean\r\n");
+		sb.append("\r\n   欢迎使用 " + /**Global.getConfig("ak.name") + **/"  - Powered By Vean\r\n");
 		sb.append("\r\n==============================================================\r\n");
 		System.out.println(sb.toString());
 	}
