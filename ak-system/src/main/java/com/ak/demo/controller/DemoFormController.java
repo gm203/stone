@@ -2,18 +2,16 @@ package com.ak.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.ak.common.core.domain.AjaxResult;
 
 /**
  * 表单相关
  * 
- * @author
+ * @author ak
  */
 @Controller
 @RequestMapping("/demo/form")
@@ -152,7 +150,7 @@ public class DemoFormController {
 	@GetMapping("/collection")
 	@ResponseBody
 	public AjaxResult collection() {
-		String[] array = { "ruoyi 1", "ruoyi 2", "ruoyi 3", "ruoyi 4", "ruoyi 5" };
+		String[] array = { "ak 1", "ak 2", "ak 3", "ak 4", "ak 5" };
 		AjaxResult ajax = new AjaxResult();
 		ajax.put("value", array);
 		return ajax;

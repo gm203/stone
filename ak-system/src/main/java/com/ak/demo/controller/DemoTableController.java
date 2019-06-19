@@ -5,25 +5,23 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ak.common.core.controller.BaseController;
 import com.ak.common.core.page.PageDomain;
 import com.ak.common.core.page.TableDataInfo;
 import com.ak.common.core.page.TableSupport;
 import com.ak.common.utils.DateUtils;
 import com.ak.common.utils.StringUtils;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * 表格相关
  * 
- * @author
+ * @author ak
  */
 @Controller
 @RequestMapping("/demo/table")
@@ -162,6 +160,14 @@ public class DemoTableController extends BaseController {
 	@GetMapping("/image")
 	public String image() {
 		return prefix + "/image";
+	}
+
+	/**
+	 * 动态增删改查
+	 */
+	@GetMapping("/curd")
+	public String curd() {
+		return prefix + "/curd";
 	}
 
 	/**

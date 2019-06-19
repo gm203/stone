@@ -149,7 +149,7 @@ $(function() {
 var refreshItem = function(){
     var topWindow = $(window.parent.document);
 	var currentId = $('.page-tabs-content', topWindow).find('.active').attr('data-id');
-	var target = $('.RuoYi_iframe[data-id="' + currentId + '"]', topWindow);
+	var target = $('.ak_iframe[data-id="' + currentId + '"]', topWindow);
     var url = target.attr('src');
     target.attr('src', url).ready();
 }
@@ -161,9 +161,9 @@ var closeItem = function(){
 	$('.page-tabs-content .active i', topWindow).click();
 	if($.common.isNotEmpty(panelUrl)){
 		$('.menuTab[data-id="' + panelUrl + '"]', topWindow).addClass('active').siblings('.menuTab').removeClass('active');
-		$('.mainContent .RuoYi_iframe', topWindow).each(function() {
+		$('.mainContent .ak_iframe', topWindow).each(function() {
             if ($(this).data('id') == panelUrl) {
-                $(this).show().siblings('.RuoYi_iframe').hide();
+                $(this).show().siblings('.ak_iframe').hide();
                 return false;
             }
 		});
@@ -184,9 +184,9 @@ function createMenuItem(dataUrl, menuName) {
                 $(this).addClass('active').siblings('.menuTab').removeClass('active');
                 $('.page-tabs-content').animate({ marginLeft: ""}, "fast");
                 // 显示tab对应的内容区
-                $('.mainContent .RuoYi_iframe', topWindow).each(function() {
+                $('.mainContent .ak_iframe', topWindow).each(function() {
                     if ($(this).data('id') == dataUrl) {
-                        $(this).show().siblings('.RuoYi_iframe').hide();
+                        $(this).show().siblings('.ak_iframe').hide();
                         return false;
                     }
                 });
@@ -201,8 +201,8 @@ function createMenuItem(dataUrl, menuName) {
         $('.menuTab', topWindow).removeClass('active');
 
         // 添加选项卡对应的iframe
-        var str1 = '<iframe class="RuoYi_iframe" name="iframe' + dataIndex + '" width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" data-panel="' + panelUrl + '" seamless></iframe>';
-        $('.mainContent', topWindow).find('iframe.RuoYi_iframe').hide().parents('.mainContent').append(str1);
+        var str1 = '<iframe class="ak_iframe" name="iframe' + dataIndex + '" width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" data-panel="' + panelUrl + '" seamless></iframe>';
+        $('.mainContent', topWindow).find('iframe.ak_iframe').hide().parents('.mainContent').append(str1);
         
         window.parent.$.modal.loading("数据加载中，请稍后...");
         $('.mainContent iframe:visible', topWindow).load(function () {
