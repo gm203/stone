@@ -1,4 +1,4 @@
-package com.ruoyi.common.json;
+package com.ak.common.json;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,12 +9,12 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
 
 /**
  * 通用消息对象，基于Map实现的可嵌套数据结构。 支持JSON数据结构。
  * 
- * @author ruoyi
+ * @author ak
  */
 public class JSONObject extends LinkedHashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
@@ -485,7 +485,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 		return arr;
 	}
 
-	private static JSONObject toObj(final Map<String, Object> map) {
+	public static JSONObject toObj(final Map<String, Object> map) {
 		final JSONObject obj = new JSONObject();
 		for (final Map.Entry<String, Object> ent : map.entrySet()) {
 			obj.put(ent.getKey(), transfer(ent.getValue()));

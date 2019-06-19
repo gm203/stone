@@ -1,4 +1,4 @@
-package com.ruoyi.common.xss;
+package com.ak.common.xss;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -8,7 +8,7 @@ import org.jsoup.safety.Whitelist;
 /**
  * XSS过滤处理
  * 
- * @author ruoyi
+ * @author ak
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	/**

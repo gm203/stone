@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
 
 /**
  * 配置处理工具类

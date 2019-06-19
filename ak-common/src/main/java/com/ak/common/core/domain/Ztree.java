@@ -1,25 +1,34 @@
-package com.ruoyi.common.core.domain;
+package com.ak.common.core.domain;
 
 import java.io.Serializable;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Ztree树结构实体类
  * 
- * @author ruoyi
+ * @author ak
  */
 public class Ztree implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/** 节点ID */
+	@Getter
+	@Setter
 	private Long id;
 
 	/** 节点父ID */
 	private Long pId;
 
 	/** 节点名称 */
+	@Getter
+	@Setter
 	private String name;
 
 	/** 节点标题 */
+	@Getter
+	@Setter
 	private String title;
 
 	/** 是否勾选 */
@@ -30,38 +39,6 @@ public class Ztree implements Serializable {
 
 	/** 是否能勾选 */
 	private boolean nocheck = false;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getpId() {
-		return pId;
-	}
-
-	public void setpId(Long pId) {
-		this.pId = pId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	public boolean isChecked() {
 		return checked;
@@ -85,5 +62,13 @@ public class Ztree implements Serializable {
 
 	public void setNocheck(boolean nocheck) {
 		this.nocheck = nocheck;
+	}
+
+	public Long getpId() {
+		return pId;
+	}
+
+	public void setpId(Long pId) {
+		this.pId = pId;
 	}
 }

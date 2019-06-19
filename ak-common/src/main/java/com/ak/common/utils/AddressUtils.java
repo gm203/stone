@@ -1,16 +1,16 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.config.Global;
-import com.ruoyi.common.json.JSON;
-import com.ruoyi.common.json.JSONObject;
-import com.ruoyi.common.utils.http.HttpUtils;
+import com.ak.common.config.Global;
+import com.ak.common.json.JSON;
+import com.ak.common.json.JSONObject;
+import com.ak.common.utils.http.HttpUtils;
 
 /**
  * 获取地址类
  * 
- * @author ruoyi
+ * @author ak
  */
 public class AddressUtils {
 	private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);

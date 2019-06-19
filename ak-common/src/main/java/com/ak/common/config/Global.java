@@ -1,17 +1,17 @@
-package com.ruoyi.common.config;
+package com.ak.common.config;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.YamlUtil;
+import com.ak.common.utils.StringUtils;
+import com.ak.common.utils.YamlUtil;
 
 /**
  * 全局配置类
  * 
- * @author ruoyi
+ * @author ak
  */
 public class Global {
 	private static final Logger log = LoggerFactory.getLogger(Global.class);
@@ -63,62 +63,62 @@ public class Global {
 	 * 获取项目名称
 	 */
 	public static String getName() {
-		return StringUtils.nvl(getConfig("ruoyi.name"), "RuoYi");
+		return StringUtils.nvl(getConfig("ak.name"), "ak");
 	}
 
 	/**
 	 * 获取项目版本
 	 */
 	public static String getVersion() {
-		return StringUtils.nvl(getConfig("ruoyi.version"), "3.4.0");
+		return StringUtils.nvl(getConfig("ak.version"), "1.0.0");
 	}
 
 	/**
 	 * 获取版权年份
 	 */
 	public static String getCopyrightYear() {
-		return StringUtils.nvl(getConfig("ruoyi.copyrightYear"), "2019");
+		return StringUtils.nvl(getConfig("ak.copyrightYear"), "2019");
 	}
 
 	/**
 	 * 实例演示开关
 	 */
 	public static String isDemoEnabled() {
-		return StringUtils.nvl(getConfig("ruoyi.demoEnabled"), "true");
+		return StringUtils.nvl(getConfig("ak.demoEnabled"), "true");
 	}
 
 	/**
 	 * 获取ip地址开关
 	 */
 	public static Boolean isAddressEnabled() {
-		return Boolean.valueOf(getConfig("ruoyi.addressEnabled"));
+		return Boolean.valueOf(getConfig("ak.addressEnabled"));
 	}
 
 	/**
 	 * 获取文件上传路径
 	 */
 	public static String getProfile() {
-		return getConfig("ruoyi.profile");
+		return getConfig("ak.profile");
 	}
 
 	/**
 	 * 获取头像上传路径
 	 */
 	public static String getAvatarPath() {
-		return getConfig("ruoyi.profile") + "avatar/";
+		return getConfig("ak.profile") + "avatar/";
 	}
 
 	/**
 	 * 获取下载路径
 	 */
 	public static String getDownloadPath() {
-		return getConfig("ruoyi.profile") + "download/";
+		return getConfig("ak.profile") + "download/";
 	}
 
 	/**
 	 * 获取上传路径
 	 */
 	public static String getUploadPath() {
-		return getConfig("ruoyi.profile") + "upload/";
+		return getConfig("ak.profile") + "upload/";
 	}
 }

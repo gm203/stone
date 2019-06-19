@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.ak.common.constant;
 
 /**
  * 任务调度通用常量
  * 
- * @author ruoyi
+ * @author ak
  */
 public interface ScheduleConstants {
 	public static final String TASK_CLASS_NAME = "TASK_CLASS_NAME";

@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Map通用处理方法
  * 
- * @author ruoyi
+ * @author ak
  */
 public class MapDataUtil {
 	public static Map<String, Object> convertDataMap(HttpServletRequest request) {

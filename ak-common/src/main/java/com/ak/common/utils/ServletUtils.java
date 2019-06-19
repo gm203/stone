@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import com.ruoyi.common.core.text.Convert;
+import com.ak.common.core.text.Convert;
 
 /**
  * 客户端工具类
  * 
- * @author ruoyi
+ * @author ak
  */
 public class ServletUtils {
 	/**

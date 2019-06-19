@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.ak.common.constant;
 
 /**
  * Shiro通用常量
  * 
- * @author ruoyi
+ * @author ak
  */
 public interface ShiroConstants {
 	/**

@@ -1,9 +1,9 @@
-package com.ruoyi.common.enums;
+package com.ak.common.enums;
 
 /**
  * 用户会话
  * 
- * @author ruoyi
+ * @author ak
  */
 public enum OnlineStatus {
 	/** 用户状态 */

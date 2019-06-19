@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.ak.common.constant;
 
 /**
  * 权限通用常量
  * 
- * @author ruoyi
+ * @author ak
  */
 public class PermissionConstants {
 	/** 新增权限 */

@@ -1,4 +1,4 @@
-package com.ruoyi.common.xss;
+package com.ak.common.xss;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,12 +13,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
 
 /**
  * 防止XSS攻击的过滤器
  * 
- * @author ruoyi
+ * @author ak
  */
 public class XssFilter implements Filter {
 	/**

@@ -1,20 +1,35 @@
-package com.ruoyi.common.core.page;
+package com.ak.common.core.page;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 分页数据
  * 
- * @author ruoyi
+ * @author ak
  */
 public class PageDomain {
+	
 	/** 当前记录起始索引 */
+	@Getter
+	@Setter
 	private Integer pageNum;
+	
 	/** 每页显示记录数 */
+	@Getter
+	@Setter
 	private Integer pageSize;
+	
 	/** 排序列 */
+	@Getter
+	@Setter
 	private String orderByColumn;
+	
 	/** 排序的方向 "desc" 或者 "asc". */
+	@Getter
+	@Setter
 	private String isAsc;
 
 	public String getOrderBy() {
@@ -24,35 +39,4 @@ public class PageDomain {
 		return StringUtils.toUnderScoreCase(orderByColumn) + " " + isAsc;
 	}
 
-	public Integer getPageNum() {
-		return pageNum;
-	}
-
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-	}
-
-	public Integer getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public String getOrderByColumn() {
-		return orderByColumn;
-	}
-
-	public void setOrderByColumn(String orderByColumn) {
-		this.orderByColumn = orderByColumn;
-	}
-
-	public String getIsAsc() {
-		return isAsc;
-	}
-
-	public void setIsAsc(String isAsc) {
-		this.isAsc = isAsc;
-	}
 }

@@ -1,12 +1,12 @@
-package com.ruoyi.common.core.page;
+package com.ak.common.core.page;
 
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.ServletUtils;
+import com.ak.common.constant.Constants;
+import com.ak.common.utils.ServletUtils;
 
 /**
  * 表格数据处理
  * 
- * @author ruoyi
+ * @author ak
  */
 public class TableSupport {
 	/**

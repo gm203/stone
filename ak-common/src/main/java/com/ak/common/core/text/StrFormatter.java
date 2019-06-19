@@ -1,11 +1,11 @@
-package com.ruoyi.common.core.text;
+package com.ak.common.core.text;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
 
 /**
  * 字符串格式化
  * 
- * @author ruoyi
+ * @author ak
  */
 public class StrFormatter {
 	public static final String EMPTY_JSON = "{}";

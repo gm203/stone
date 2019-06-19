@@ -1,13 +1,13 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import java.util.Collection;
 import java.util.Map;
-import com.ruoyi.common.core.text.StrFormatter;
+import com.ak.common.core.text.StrFormatter;
 
 /**
  * 字符串工具类
  * 
- * @author ruoyi
+ * @author ak
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	/** 空字符串 */

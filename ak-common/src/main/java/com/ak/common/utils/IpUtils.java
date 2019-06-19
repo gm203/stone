@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.ak.common.utils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 获取IP方法
  * 
- * @author ruoyi
+ * @author ak
  */
 public class IpUtils {
 	public static String getIpAddr(HttpServletRequest request) {

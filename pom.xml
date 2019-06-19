@@ -12,7 +12,7 @@
     <description>通用后台管理系统</description>
     
     <properties>
-	    <ruoyi.version>3.4</ruoyi.version>
+	    <stone.version>1.0</stone.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -22,7 +22,7 @@
 		<druid.version>1.1.14</druid.version>
 		<bitwalker.version>1.19</bitwalker.version>
 		<kaptcha.version>2.3.2</kaptcha.version>
-		<swagger.version>2.9.2</swagger.version>
+		<swagger.version>2.7.0</swagger.version>
 		<pagehelper.boot.version>1.2.5</pagehelper.boot.version>
 		<oshi.version>3.9.1</oshi.version>
 		<commons.io.version>2.5</commons.io.version>
@@ -59,17 +59,10 @@
 				<version>${kaptcha.version}</version>
 			</dependency>
 			
-			<!--Shiro核心框架 -->
+			<!--Shiro框架 -->
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
-				<artifactId>shiro-core</artifactId>
-				<version>${shiro.version}</version>
-			</dependency>
-			
-			<!-- Shiro使用Srping框架 -->
-			<dependency>
-				<groupId>org.apache.shiro</groupId>
-				<artifactId>shiro-spring</artifactId>
+				<artifactId>shiro-spring-boot-starter</artifactId>
 				<version>${shiro.version}</version>
 			</dependency>
 			
@@ -113,16 +106,6 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger2</artifactId>
 				<version>${swagger.version}</version>
-				<exclusions>
-				    <exclusion>
-				        <groupId>io.swagger</groupId>
-				        <artifactId>swagger-annotations</artifactId>
-				    </exclusion>
-				    <exclusion>
-				        <groupId>io.swagger</groupId>
-				        <artifactId>swagger-models</artifactId>
-				    </exclusion>
-				</exclusions>
 			</dependency>
 			
 			<!-- swagger2-UI-->
@@ -169,37 +152,30 @@
             
             <!-- 定时任务-->
 			<dependency>
-				<groupId>com.ruoyi</groupId>
-				<artifactId>ruoyi-quartz</artifactId>
-				<version>${ruoyi.version}</version>
-			</dependency>
-	
-			<!-- 代码生成-->
-			<dependency>
-				<groupId>com.ruoyi</groupId>
-				<artifactId>ruoyi-generator</artifactId>
-				<version>${ruoyi.version}</version>
+				<groupId>com.ak</groupId>
+				<artifactId>ak-quartz</artifactId>
+				<version>${stone.version}</version>
 			</dependency>
 			
 			<!-- 核心模块-->
 			<dependency>
-				<groupId>com.ruoyi</groupId>
-				<artifactId>ruoyi-framework</artifactId>
-				<version>${ruoyi.version}</version>
+				<groupId>com.ak</groupId>
+				<artifactId>ak-framework</artifactId>
+				<version>${stone.version}</version>
 			</dependency>
 			
 	        <!-- 系统模块-->
 			<dependency>
-				<groupId>com.ruoyi</groupId>
-				<artifactId>ruoyi-system</artifactId>
-				<version>${ruoyi.version}</version>
+				<groupId>com.ak</groupId>
+				<artifactId>ak-system-api</artifactId>
+				<version>${stone.version}</version>
 			</dependency>
 			
 			<!-- 通用工具-->
 	        <dependency>
-	            <groupId>com.ruoyi</groupId>
-	            <artifactId>ruoyi-common</artifactId>
-	            <version>${ruoyi.version}</version>
+	            <groupId>com.ak</groupId>
+	            <artifactId>ak-common</artifactId>
+	            <version>${stone.version}</version>
 	        </dependency>
 	        
         </dependencies>
@@ -215,8 +191,6 @@
     <packaging>pom</packaging>
 
 	<dependencies>
-
-		 
 
 	</dependencies>
 

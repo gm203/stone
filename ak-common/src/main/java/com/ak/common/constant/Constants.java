@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.ak.common.constant;
 
 /**
  * 通用常量信息
  * 
- * @author ruoyi
+ * @author ak
  */
 public class Constants {
 	/**

@@ -1,14 +1,14 @@
-package com.ruoyi.common.core.domain;
+package com.ak.common.core.domain;
 
 import java.util.HashMap;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.utils.StringUtils;
+import com.ak.common.utils.StringUtils;
 
 /**
  * 操作消息提醒
  * 
- * @author ruoyi
+ * @author ak
  */
 public class AjaxResult extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
