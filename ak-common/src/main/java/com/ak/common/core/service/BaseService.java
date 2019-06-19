@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ak.common.core.domain.BaseEntity;
-import com.ak.common.core.mapper.BaseDao;
+import com.ak.common.core.mapper.BaseMapper;
 
 /**
  * Service基类
  * @author AK
  * @version 2014-05-16
  */
-public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity> {
+public abstract class BaseService<D extends BaseMapper<T>, T extends BaseEntity> {
 	
 	/**
 	 * 持久层对象

@@ -1,73 +1,73 @@
-# é¡¹ç›®ç›¸å…³é…ç½®
+# ÏîÄ¿Ïà¹ØÅäÖÃ
 ak:
-  # åç§°
+  # Ãû³Æ
   name: stone
-  # ç‰ˆæœ¬
+  # °æ±¾
   version: 1.0.0
-  # ç‰ˆæƒå¹´ä»½
+  # °æÈ¨Äê·İ
   copyrightYear: 2019
-  # å®ä¾‹æ¼”ç¤ºå¼€å…³
+  # ÊµÀıÑİÊ¾¿ª¹Ø
   demoEnabled: true
-  # æ–‡ä»¶è·¯å¾„
+  # ÎÄ¼şÂ·¾¶
   profile: D:/tmp/visualization/profile/
-  # è·å–ipåœ°å€å¼€å…³
+  # »ñÈ¡ipµØÖ·¿ª¹Ø
   addressEnabled: true
 
-# å¼€å‘ç¯å¢ƒé…ç½®
+# ¿ª·¢»·¾³ÅäÖÃ
 server:
-  # æœåŠ¡å™¨çš„HTTPç«¯å£ï¼Œé»˜è®¤ä¸º80
+  # ·şÎñÆ÷µÄHTTP¶Ë¿Ú£¬Ä¬ÈÏÎª80
   port: 80
   servlet:
-    # åº”ç”¨çš„è®¿é—®è·¯å¾„
+    # Ó¦ÓÃµÄ·ÃÎÊÂ·¾¶
     context-path: /
   tomcat:
-    # tomcatçš„URIç¼–ç 
+    # tomcatµÄURI±àÂë
     uri-encoding: UTF-8
-    # tomcatæœ€å¤§çº¿ç¨‹æ•°ï¼Œé»˜è®¤ä¸º200
+    # tomcat×î´óÏß³ÌÊı£¬Ä¬ÈÏÎª200
     max-threads: 800
-    # Tomcatå¯åŠ¨åˆå§‹åŒ–çš„çº¿ç¨‹æ•°ï¼Œé»˜è®¤å€¼25
+    # TomcatÆô¶¯³õÊ¼»¯µÄÏß³ÌÊı£¬Ä¬ÈÏÖµ25
     min-spare-threads: 30
  
-# æ—¥å¿—é…ç½®
+# ÈÕÖ¾ÅäÖÃ
 logging:
   level:
     com.ak: debug
     org.springframework: warn
 
-# ç”¨æˆ·é…ç½®
+# ÓÃ»§ÅäÖÃ
 user:
   password:
-    # å¯†ç é”™è¯¯{maxRetryCount}æ¬¡é”å®š10åˆ†é’Ÿ
+    # ÃÜÂë´íÎó{maxRetryCount}´ÎËø¶¨10·ÖÖÓ
     maxRetryCount: 5
 
-# Springé…ç½®
+# SpringÅäÖÃ
 spring:
-  # æ¨¡æ¿å¼•æ“
+  # Ä£°åÒıÇæ
   thymeleaf:
     mode: HTML
     encoding: utf-8
-    # ç¦ç”¨ç¼“å­˜
+    # ½ûÓÃ»º´æ
     cache: false
-  # èµ„æºä¿¡æ¯
+  # ×ÊÔ´ĞÅÏ¢
   messages:
-    # å›½é™…åŒ–èµ„æºæ–‡ä»¶è·¯å¾„
+    # ¹ú¼Ê»¯×ÊÔ´ÎÄ¼şÂ·¾¶
     basename: static/i18n/messages
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
   profiles: 
     active: druid
-  # æ–‡ä»¶ä¸Šä¼ 
+  # ÎÄ¼şÉÏ´«
   servlet:
      multipart:
-       # å•ä¸ªæ–‡ä»¶å¤§å°
+       # µ¥¸öÎÄ¼ş´óĞ¡
        max-file-size:  10MB
-       # è®¾ç½®æ€»ä¸Šä¼ çš„æ–‡ä»¶å¤§å°
+       # ÉèÖÃ×ÜÉÏ´«µÄÎÄ¼ş´óĞ¡
        max-request-size:  20MB
-  # æœåŠ¡æ¨¡å—
+  # ·şÎñÄ£¿é
   devtools:
     restart:
-      # çƒ­éƒ¨ç½²å¼€å…³
+      # ÈÈ²¿Êğ¿ª¹Ø
       enabled: true
   redis:
     host: 127.0.0.1
@@ -81,22 +81,22 @@ spring:
         min-idle: 0
     timeout: 0
     database: 1
-    keyPrefix: vean  #Redis key å‰ç¼€      
-    run: true  #Redisæ˜¯å¦å¯åŠ¨
-    listFlush: true   #listè®°å½•æ ¹æ®æ·»åŠ ä¿®æ”¹åˆ é™¤è‡ªåŠ¨æ¸…é™¤
-    expireTime: 3600     #ç¼“å­˜æœ‰æ•ˆæ—¶é—´15åˆ†é’Ÿ
-    expireTimeShiro: 1800     #ç¼“å­˜æœ‰æ•ˆæ—¶é—´30åˆ†é’Ÿ
+    keyPrefix: vean  #Redis key Ç°×º      
+    run: true  #RedisÊÇ·ñÆô¶¯
+    listFlush: true   #list¼ÇÂ¼¸ù¾İÌí¼ÓĞŞ¸ÄÉ¾³ı×Ô¶¯Çå³ı
+    expireTime: 3600     #»º´æÓĞĞ§Ê±¼ä15·ÖÖÓ
+    expireTimeShiro: 1800     #»º´æÓĞĞ§Ê±¼ä30·ÖÖÓ
 
 # MyBatis
 mybatis:
-    # æœç´¢æŒ‡å®šåŒ…åˆ«å
+    # ËÑË÷Ö¸¶¨°ü±ğÃû
     typeAliasesPackage: com.ak
-    # é…ç½®mapperçš„æ‰«æï¼Œæ‰¾åˆ°æ‰€æœ‰çš„mapper.xmlæ˜ å°„æ–‡ä»¶
+    # ÅäÖÃmapperµÄÉ¨Ãè£¬ÕÒµ½ËùÓĞµÄmapper.xmlÓ³ÉäÎÄ¼ş
     mapperLocations: classpath*:mapper/**/*Mapper.xml
-    # åŠ è½½å…¨å±€çš„é…ç½®æ–‡ä»¶
+    # ¼ÓÔØÈ«¾ÖµÄÅäÖÃÎÄ¼ş
     configLocation: classpath:mybatis/mybatis-config.xml
 
-# PageHelperåˆ†é¡µæ’ä»¶
+# PageHelper·ÖÒ³²å¼ş
 pagehelper: 
   helperDialect: mysql
   reasonable: true
@@ -106,42 +106,42 @@ pagehelper:
 # Shiro
 shiro:
   user:
-    # ç™»å½•åœ°å€
+    # µÇÂ¼µØÖ·
     loginUrl: /login
-    # æƒé™è®¤è¯å¤±è´¥åœ°å€
+    # È¨ÏŞÈÏÖ¤Ê§°ÜµØÖ·
     unauthorizedUrl: /unauth
-    # é¦–é¡µåœ°å€
+    # Ê×Ò³µØÖ·
     indexUrl: /index
-    # éªŒè¯ç å¼€å…³
+    # ÑéÖ¤Âë¿ª¹Ø
     captchaEnabled: true
-    # éªŒè¯ç ç±»å‹ math æ•°ç»„è®¡ç®— char å­—ç¬¦
+    # ÑéÖ¤ÂëÀàĞÍ math Êı×é¼ÆËã char ×Ö·û
     captchaType: math
   cookie:
-    # è®¾ç½®Cookieçš„åŸŸå é»˜è®¤ç©ºï¼Œå³å½“å‰è®¿é—®çš„åŸŸå
+    # ÉèÖÃCookieµÄÓòÃû Ä¬ÈÏ¿Õ£¬¼´µ±Ç°·ÃÎÊµÄÓòÃû
     domain: 
-    # è®¾ç½®cookieçš„æœ‰æ•ˆè®¿é—®è·¯å¾„
+    # ÉèÖÃcookieµÄÓĞĞ§·ÃÎÊÂ·¾¶
     path: /
-    # è®¾ç½®HttpOnlyå±æ€§
+    # ÉèÖÃHttpOnlyÊôĞÔ
     httpOnly: true
-    # è®¾ç½®Cookieçš„è¿‡æœŸæ—¶é—´ï¼Œå¤©ä¸ºå•ä½
+    # ÉèÖÃCookieµÄ¹ıÆÚÊ±¼ä£¬ÌìÎªµ¥Î»
     maxAge: 30
   session:
-    # Sessionè¶…æ—¶æ—¶é—´ï¼ˆé»˜è®¤30åˆ†é’Ÿï¼‰
+    # Session³¬Ê±Ê±¼ä£¨Ä¬ÈÏ30·ÖÖÓ£©
     expireTime: 30
-    # åŒæ­¥sessionåˆ°æ•°æ®åº“çš„å‘¨æœŸï¼ˆé»˜è®¤1åˆ†é’Ÿï¼‰
+    # Í¬²½sessionµ½Êı¾İ¿âµÄÖÜÆÚ£¨Ä¬ÈÏ1·ÖÖÓ£©
     dbSyncPeriod: 1
-    # ç›¸éš”å¤šä¹…æ£€æŸ¥ä¸€æ¬¡sessionçš„æœ‰æ•ˆæ€§ï¼Œé»˜è®¤å°±æ˜¯10åˆ†é’Ÿ
+    # Ïà¸ô¶à¾Ã¼ì²éÒ»´ÎsessionµÄÓĞĞ§ĞÔ£¬Ä¬ÈÏ¾ÍÊÇ10·ÖÖÓ
     validationInterval: 10
-    # åŒä¸€ä¸ªç”¨æˆ·æœ€å¤§ä¼šè¯æ•°ï¼Œæ¯”å¦‚2çš„æ„æ€æ˜¯åŒä¸€ä¸ªè´¦å·å…è®¸æœ€å¤šåŒæ—¶ä¸¤ä¸ªäººç™»å½•ï¼ˆé»˜è®¤-1ä¸é™åˆ¶ï¼‰
+    # Í¬Ò»¸öÓÃ»§×î´ó»á»°Êı£¬±ÈÈç2µÄÒâË¼ÊÇÍ¬Ò»¸öÕËºÅÔÊĞí×î¶àÍ¬Ê±Á½¸öÈËµÇÂ¼£¨Ä¬ÈÏ-1²»ÏŞÖÆ£©
     maxSession: -1
-    # è¸¢å‡ºä¹‹å‰ç™»å½•çš„/ä¹‹åç™»å½•çš„ç”¨æˆ·ï¼Œé»˜è®¤è¸¢å‡ºä¹‹å‰ç™»å½•çš„ç”¨æˆ·
+    # Ìß³öÖ®Ç°µÇÂ¼µÄ/Ö®ºóµÇÂ¼µÄÓÃ»§£¬Ä¬ÈÏÌß³öÖ®Ç°µÇÂ¼µÄÓÃ»§
     kickoutAfter: false
 
-# é˜²æ­¢XSSæ”»å‡»
+# ·ÀÖ¹XSS¹¥»÷
 xss: 
-  # è¿‡æ»¤å¼€å…³
+  # ¹ıÂË¿ª¹Ø
   enabled: true
-  # æ’é™¤é“¾æ¥ï¼ˆå¤šä¸ªç”¨é€—å·åˆ†éš”ï¼‰
+  # ÅÅ³ıÁ´½Ó£¨¶à¸öÓÃ¶ººÅ·Ö¸ô£©
   excludes: /system/notice/*
-  # åŒ¹é…é“¾æ¥
+  # Æ¥ÅäÁ´½Ó
   urlPatterns: /system/*,/monitor/*,/tool/*
