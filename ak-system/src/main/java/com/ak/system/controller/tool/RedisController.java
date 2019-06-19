@@ -2,7 +2,6 @@ package com.ak.system.controller.tool;
 
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,14 +22,12 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "Redis云数据缓存接口", tags = "Redis云数据缓存接口")
 public class RedisController extends BaseController {
 
-	@Autowired
-	private RedisUtils redisUtils;
 
 	@RequestMapping(value = "/test", method = { RequestMethod.GET })
 	@ApiOperation(value = "Redis Test信息(Content-Type为text/html)", notes = "Redis Test(Content-Type为text/html)")
 	public String test() {
-		redisUtils.set("Redis Test", "Redis Test");
-		String string = redisUtils.get("Redis Test").toString();
+		RedisUtils.set("1", "11111111");
+		String string = RedisUtils.get("1").toString();
 		return string;
 	}
 
@@ -44,7 +41,7 @@ public class RedisController extends BaseController {
 	public AjaxResult removeList(@RequestParam(required = false) String keys) {
 		String[] keysList = keys.split(",");
 		for (String key : keysList) {
-			redisUtils.remove(key);
+			RedisUtils.remove(key);
 		}
 		return success("移除成功");
 	}
@@ -57,14 +54,14 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/removePattern", method = { RequestMethod.DELETE })
 	@ApiOperation(value = "Redis remove pattern接口(Content-Type为text/html)", notes = "Redis remove pattern接口接口(Content-Type为text/html)")
 	public AjaxResult removePattern(@RequestParam(required = false) String pattern) {
-		redisUtils.removePattern(pattern);
+		RedisUtils.removePattern(pattern);
 		return success("移除成功");
 	}
 
 	@RequestMapping(value = "/removePatternShiroRedis", method = { RequestMethod.DELETE })
 	@ApiOperation(value = "Redis remove pattern Shiro Reids接口(Content-Type为text/html)", notes = "Redis remove pattern Shiro Reids接口接口(Content-Type为text/html)")
 	public AjaxResult removePatternShiroReids(@RequestParam(required = false) String pattern) {
-		redisUtils.removePatternShiroReids(pattern);
+		RedisUtils.removePatternShiroReids(pattern);
 		return success("移除成功");
 	}
 
@@ -76,7 +73,7 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/remove", method = { RequestMethod.DELETE })
 	@ApiOperation(value = "Redis remove接口(Content-Type为text/html)", notes = "Redis remove接口(Content-Type为text/html)")
 	public AjaxResult remove(@RequestParam(required = false) String key) {
-		redisUtils.remove(key);
+		RedisUtils.remove(key);
 		return success("移除成功");
 	}
 
@@ -89,7 +86,7 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/exists", method = { RequestMethod.GET })
 	@ApiOperation(value = "Redis exists接口(Content-Type为text/html)", notes = "Redis exists接口(Content-Type为text/html)")
 	public AjaxResult exists(@RequestParam(required = false) String key) {
-		if (redisUtils.exists(key)) {
+		if (RedisUtils.exists(key)) {
 			return success("存在！");
 		} else {
 			return error("不存在！");
@@ -105,8 +102,8 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/get", method = { RequestMethod.GET })
 	@ApiOperation(value = "Redis get接口(Content-Type为text/html)", notes = "Redis get接口(Content-Type为text/html)")
 	public AjaxResult get(@RequestParam(required = false) String key) {
-		if (redisUtils.exists(key)) {
-			return new AjaxResult(Type.SUCCESS, "成功", redisUtils.get(key));
+		if (RedisUtils.exists(key)) {
+			return new AjaxResult(Type.SUCCESS, "成功", RedisUtils.get(key));
 		} else {
 			return error("不存在！");
 		}
@@ -122,7 +119,7 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/set", method = { RequestMethod.POST })
 	@ApiOperation(value = "Redis set接口(Content-Type为text/html)", notes = "Redis set接口(Content-Type为text/html)")
 	public AjaxResult set(@RequestParam(required = false) String key, @RequestParam(required = false) String value) {
-		if (redisUtils.set(key, value)) {
+		if (RedisUtils.set(key, value)) {
 			AjaxResult result = error("添加/更新成功！");
 			return result;
 		} else {
@@ -141,7 +138,7 @@ public class RedisController extends BaseController {
 	@ApiOperation(value = "Redis set expireTime接口(Content-Type为text/html)", notes = "Redis set expireTime接口接口(Content-Type为text/html)")
 	public AjaxResult set(@RequestParam(required = false) String key, @RequestParam(required = false) String value,
 			@RequestParam(required = false) Long expireTime) {
-		if (redisUtils.set(key, value, expireTime)) {
+		if (RedisUtils.set(key, value, expireTime)) {
 			AjaxResult result = success("添加/更新成功！");
 			return result;
 		} else {
@@ -157,7 +154,7 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/getKyes", method = { RequestMethod.GET })
 	@ApiOperation(value = "Redis get kyes接口(Content-Type为text/html)", notes = "Redis get kyes接口接口(Content-Type为text/html)")
 	public AjaxResult getKyes(@RequestParam(required = false) String pattern) {
-		Set<String> keys = redisUtils.getKyes(pattern);
+		Set<String> keys = RedisUtils.getKyes(pattern);
 		AjaxResult result = success("获取Keys成功！");
 		result.setData(keys);
 		return result;
@@ -166,9 +163,9 @@ public class RedisController extends BaseController {
 	@RequestMapping(value = "/getKyesAll", method = { RequestMethod.GET })
 	@ApiOperation(value = "Redis get kyes all接口(Content-Type为text/html)", notes = "Redis get kyes all接口(Content-Type为text/html)")
 	public AjaxResult getKyesAll() {
-		Set<String> keys = redisUtils.getKyesAll();
+		Set<String> keys = RedisUtils.getKyesAll();
 		AjaxResult result = success("获取Keys成功！");
-		result.setData(redisUtils.get(keys.stream().findFirst().get()));
+		result.setData(RedisUtils.get(keys.stream().findFirst().get()));
 		return result;
 	}
 
@@ -181,7 +178,7 @@ public class RedisController extends BaseController {
 	@ApiOperation(value = "Redis get count接口(Content-Type为text/html)", notes = "Redis get count接口(Content-Type为text/html)")
 	public AjaxResult getCount(@RequestParam(required = false) String pattern) {
 		AjaxResult result = success("获取数量成功！");
-		result.setData(redisUtils.getCount());
+		result.setData(RedisUtils.getCount());
 		return result;
 	}
 
@@ -189,7 +186,7 @@ public class RedisController extends BaseController {
 	@ApiOperation(value = "Redis get count shiro接口(Content-Type为text/html)", notes = "Redis get count shiro接口(Content-Type为text/html)")
 	public AjaxResult getCountShiro(@RequestParam(required = false) String pattern) {
 		AjaxResult result = success("获取数量成功！");
-		result.setData(redisUtils.getCountShiro());
+		result.setData(RedisUtils.getCountShiro());
 		return result;
 	}
 
@@ -202,7 +199,7 @@ public class RedisController extends BaseController {
 	@ApiOperation(value = "Redis get ExpireTime接口(Content-Type为text/html)", notes = "Redis get ExpireTime接口接口(Content-Type为text/html)")
 	public AjaxResult getExpireTime(@RequestParam(required = false) String key) {
 		AjaxResult result = success("获取token的有效期（秒）成功！");
-		result.setData(redisUtils.getExpireTime(key));
+		result.setData(RedisUtils.getExpireTime(key));
 		return result;
 	}
 

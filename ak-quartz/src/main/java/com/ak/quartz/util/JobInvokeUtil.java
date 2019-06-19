@@ -13,21 +13,18 @@ import com.ak.quartz.domain.SysJob;
  */
 public class JobInvokeUtil {
 	/**
-	 * 执行方法
-	 *
+	  * 执行方法
 	 * @param sysJob 系统任务
 	 */
 	public static void invokeMethod(SysJob sysJob) throws Exception {
 		Object bean = SpringUtils.getBean(sysJob.getJobName());
 		String methodName = sysJob.getMethodName();
 		String methodParams = sysJob.getMethodParams();
-
 		invokeSpringBean(bean, methodName, methodParams);
 	}
 
 	/**
-	 * 调用任务方法
-	 *
+	  * 调用任务方法
 	 * @param bean         目标对象
 	 * @param methodName   方法名称
 	 * @param methodParams 方法参数

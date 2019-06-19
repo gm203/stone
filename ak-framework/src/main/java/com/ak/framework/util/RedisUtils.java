@@ -7,19 +7,17 @@ import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Component;
 
 import com.ak.common.config.Global;
 import com.ak.common.utils.security.Md5Utils;
+import com.ak.common.utils.spring.SpringUtils;
 
 /**
  * redicache 工具类 在application.yml文件内的Spring-redis的run配置启动,true为启动;false为不启动;
  */
-@Component
 public class RedisUtils {
 	/**
 	 * 日志对象
@@ -40,10 +38,12 @@ public class RedisUtils {
 	public static Long expireTime = Long.parseLong(Global.getConfig("spring.redis.expireTime"));
 	public static Long expireTimeShiro = Long.parseLong(Global.getConfig("spring.redis.expireTimeShiro"));
 	public static String RUN_MESSAGE = "请开启Redis服务,还有Redis密码配置是否有误，而且密码不能为空（为空时Redis服务会连接不上）。";
-	@Autowired
-	private RedisTemplate<String, Object> redisTemplate;
-	@Autowired
-	private StringRedisTemplate stringRedisTemplate;
+	
+	@SuppressWarnings("unchecked")
+	private static RedisTemplate<String, Object> redisTemplate = SpringUtils.getBean("redisTemplate", RedisTemplate.class);
+	
+	private static StringRedisTemplate stringRedisTemplate = SpringUtils.getBean("stringRedisTemplate", StringRedisTemplate.class);
+	
 
 	public static String getExpire() {
 		if (expireTime != null) {
@@ -141,7 +141,7 @@ public class RedisUtils {
 	 * 
 	 * @param key
 	 */
-	public long getExpireTime(String key) {
+	public static long getExpireTime(String key) {
 		long time = redisTemplate.getExpire(key, TimeUnit.SECONDS);
 		return time;
 	}
@@ -151,7 +151,7 @@ public class RedisUtils {
 	 *
 	 * @param keys
 	 */
-	public void remove(final String... keys) {
+	public static void remove(final String... keys) {
 		if (!run()) {
 			return;
 		}
@@ -170,7 +170,7 @@ public class RedisUtils {
 	 *
 	 * @param pattern
 	 */
-	public void removePattern(String pattern) {
+	public static void removePattern(String pattern) {
 		if (!run()) {
 			return;
 		}
@@ -191,7 +191,7 @@ public class RedisUtils {
 		}
 	}
 
-	public void removePatternShiroReids(String pattern) {
+	public static void removePatternShiroReids(String pattern) {
 		if (!run()) {
 			return;
 		}
@@ -218,7 +218,7 @@ public class RedisUtils {
 	 *
 	 * @param pattern
 	 */
-	public Set<String> getKyes(String pattern) {
+	public static Set<String> getKyes(String pattern) {
 		if (!run()) {
 			return null;
 		}
@@ -240,7 +240,7 @@ public class RedisUtils {
 		}
 	}
 
-	public Set<String> getKyesShiroReids(String pattern) {
+	public static Set<String> getKyesShiroReids(String pattern) {
 		if (!run()) {
 			return null;
 		}
@@ -267,7 +267,7 @@ public class RedisUtils {
 		}
 	}
 
-	public Set<String> getKyesAll() {
+	public static Set<String> getKyesAll() {
 		if (!run()) {
 			return null;
 		}
@@ -290,7 +290,7 @@ public class RedisUtils {
 	 * 获取Count
 	 *
 	 */
-	public int getCount() {
+	public static int getCount() {
 		if (!run()) {
 			return 0;
 		}
@@ -304,7 +304,7 @@ public class RedisUtils {
 		}
 	}
 
-	public int getCountShiro() {
+	public static int getCountShiro() {
 		if (!run()) {
 			return 0;
 		}
@@ -323,7 +323,7 @@ public class RedisUtils {
 	 *
 	 * @param key
 	 */
-	public void remove(final String key) {
+	public static void remove(final String key) {
 		if (!run()) {
 			return;
 		}
@@ -345,7 +345,7 @@ public class RedisUtils {
 	 * @param key
 	 * @return
 	 */
-	public boolean exists(final String key) {
+	public static boolean exists(final String key) {
 		if (!run()) {
 			return false;
 		}
@@ -369,7 +369,7 @@ public class RedisUtils {
 	 * @param key
 	 * @return
 	 */
-	public Object get(final String key) {
+	public static Object get(final String key) {
 		if (!run()) {
 			return null;
 		}
@@ -397,7 +397,7 @@ public class RedisUtils {
 	 * @param value
 	 * @return
 	 */
-	public boolean set(final String key, Object value) {
+	public static boolean set(final String key, Object value) {
 		if (!run()) {
 			return false;
 		}
@@ -421,7 +421,7 @@ public class RedisUtils {
 	 * @param value
 	 * @return
 	 */
-	public boolean set(final String key, Object value, Long expireTime) {
+	public static boolean set(final String key, Object value, Long expireTime) {
 		if (!run()) {
 			return false;
 		}
@@ -438,7 +438,7 @@ public class RedisUtils {
 		return result;
 	}
 
-	public boolean set(final String key, Object value, Long expireTime, TimeUnit unit) {
+	public static boolean set(final String key, Object value, Long expireTime, TimeUnit unit) {
 		if (!run()) {
 			return false;
 		}
@@ -455,7 +455,7 @@ public class RedisUtils {
 		return result;
 	}
 
-	private boolean run() {
+	private static boolean run() {
 		if (Global.getConfig("spring.redis.run") == "true") {
 			return true;
 		}
@@ -472,7 +472,7 @@ public class RedisUtils {
 		return true;
 	}
 
-	private boolean listFlush() {
+	private static boolean listFlush() {
 		if (Global.getConfig("spring.redis.listFlush") == "true") {
 			return true;
 		}

@@ -2,6 +2,7 @@ package com.ak.common.core.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -56,7 +57,16 @@ public class BaseEntity implements Serializable {
 	private String delFlag;
 
 	/** 请求参数 */
-	@Getter
-	@Setter
 	private Map<String, Object> params;
+	
+	public Map<String, Object> getParams() {
+		if (params == null) {
+			params = new HashMap<>();
+		}
+		return params;
+	}
+
+	public void setParams(Map<String, Object> params) {
+		this.params = params;
+	}
 }
