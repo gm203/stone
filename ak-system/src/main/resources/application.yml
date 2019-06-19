@@ -42,7 +42,13 @@ user:
 
 # Spring≈‰÷√
 spring:
+<<<<<<< HEAD
   # ƒ£∞Â“˝«Ê
+=======
+  main:
+    allow-bean-definition-overriding: true
+  # Ê®°ÊùøÂºïÊìé
+>>>>>>> 12730b6d1adc38a44d29e36f76f5790a1aa4ebd8
   thymeleaf:
     mode: HTML
     encoding: utf-8
