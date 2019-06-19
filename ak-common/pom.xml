@@ -13,16 +13,22 @@
 
     <dependencies>
 		
-		<!-- SpringBoot Web容器 -->
+		<!-- Spring框架基本的核心工具 -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
 		</dependency>
+		
+		<!-- SpringWeb模块 -->
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
         
         <!--Shiro核心框架 -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring-boot-starter</artifactId>
+			<artifactId>shiro-core</artifactId>
 		</dependency>
         
 		<!-- pagehelper 分页插件 -->
@@ -71,11 +77,6 @@
 		<dependency>
 		    <groupId>org.yaml</groupId>
 		    <artifactId>snakeyaml</artifactId>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
 		</dependency>
 		
 		<!-- servlet包 -->
