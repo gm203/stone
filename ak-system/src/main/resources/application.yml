@@ -42,7 +42,8 @@ user:
 
 # Spring配置
 spring:
-  main:    allow-bean-definition-overriding: true
+  main:
+    allow-bean-definition-overriding: true
   # 模板引擎
   thymeleaf:
     mode: HTML
@@ -70,23 +71,6 @@ spring:
     restart:
       # 热部署开关
       enabled: true
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    password:
-    lettuce:
-      pool:
-        max-active: 8  
-        max-wait: -1 
-        max-idle: 8  
-        min-idle: 0
-    timeout: 0
-    keyPrefix: vean  #Redis key 前缀      
-    run: true  #Redis是否启动
-    listFlush: true   #list记录根据添加修改删除自动清除
-    expireTime: 3600     #缓存有效时间15分钟
-    expireTimeShiro: 1800     #缓存有效时间30分钟
 
 # MyBatis
 mybatis:
