@@ -101,7 +101,7 @@ public class ShiroConfig {
 	 */
 	@Bean
 	public EhCacheManager getEhCacheManager() {
-		net.sf.ehcache.CacheManager cacheManager = net.sf.ehcache.CacheManager.getCacheManager("ak");
+		net.sf.ehcache.CacheManager cacheManager = net.sf.ehcache.CacheManager.getCacheManager("ak-ehcache");
 		EhCacheManager em = new EhCacheManager();
 		if (StringUtils.isNull(cacheManager)) {
 			em.setCacheManager(new net.sf.ehcache.CacheManager(getCacheManagerConfigFileInputStream()));
