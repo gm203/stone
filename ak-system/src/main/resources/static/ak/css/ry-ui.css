@@ -82,7 +82,7 @@
     margin-bottom: 25px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
     height: 100%;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -130,7 +130,7 @@
 	margin-bottom: 20px;
 	background: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-	border-radius: 3px
+	border-radius: 5px
 }
 
 .nav-tabs-custom>.nav-tabs {
@@ -209,7 +209,7 @@
 /** 用户管理 样式布局 **/
 .box {
 	position: relative;
-	border-radius: 3px;
+	border-radius: 5px;
 	background: #ffffff;
 	border-top: 3px solid #d2d6de;
 	margin-bottom: 20px;
@@ -584,7 +584,7 @@ label {
 }
 
 .container-div {
-	padding: 10px 35px;
+	padding: 0px 25px;
 	height: 100%;
 }
 
@@ -595,11 +595,11 @@ label {
 .search-collapse,.select-table {
 	width: 100%;
 	background: #fff;
-	border-radius: 6px;
+	border-radius: 5px;
 	margin-top: 10px;
 	padding-top: 5px;
-	padding-bottom: 13px;
-	box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+	padding-bottom: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .search-collapse {
@@ -636,7 +636,7 @@ label {
 
 .select-list li input {
 	border: 1px solid #ddd;
-	border-radius: 4px;
+	border-radius: 5px;
 	background: transparent;
 	outline: none;
 	height: 30px;
@@ -646,7 +646,7 @@ label {
 
 .select-list li .submit-btn {
 	border: 0px;
-	border-radius: 4px;
+	border-radius: 5px;
 	background: transparent;
 	outline: none;
 	width: 40px;
@@ -655,7 +655,7 @@ label {
 
 .select-list li select {
 	border: 1px solid #ddd;
-	border-radius: 4px;
+	border-radius: 5px;
 	background: transparent;
 	outline: none;
 	height: 30px;
@@ -665,7 +665,7 @@ label {
 .bootstrap-select.form-control .btn-default {
     color: inherit;
     padding: 6px 12px;
-    border-radius: 1px;
+    border-radius: 5px;
     border: 1px solid #e5e6e7;
 	outline: none;
 	height: 34px;
@@ -676,7 +676,7 @@ label {
     color: #555;
     padding: 5px 5px;
     border: 1px solid #ddd;
-	border-radius: 4px;
+	border-radius: 5px;
 	background: transparent;
 	outline: none;
 	height: 30px;
@@ -759,7 +759,7 @@ label {
 	line-height: 1.42857143;
 	text-align: center;
 	white-space: nowrap;
-	border-radius: 3px;
+	border-radius: 5px;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -831,7 +831,7 @@ label {
 .bootstrap-tree-table .treetable-table{border:0 !important;margin-bottom:0}
 .bootstrap-tree-table .treetable-table tbody {display:block;height:auto;overflow-y:auto;}
 .bootstrap-tree-table .treetable-table thead, .treetable-table tbody tr {display:table;width:100%;table-layout:fixed;}
-.bootstrap-tree-table .treetable-thead th{line-height:24px;border: 0 !important;border-radius: 4px;border-left:0px solid #e7eaec !important;border-bottom:1px solid #ccc!important;text-align: left;}
+.bootstrap-tree-table .treetable-thead th{line-height:24px;border: 0 !important;border-radius: 5px;border-left:0px solid #e7eaec !important;border-bottom:1px solid #ccc!important;text-align: left;}
 .bootstrap-tree-table .treetable-thead tr :first-child{border-left:0 !important}
 .bootstrap-tree-table .treetable-tbody td{border: 0 !important;border-left:0px solid #e7eaec !important;border-bottom:1px solid #e7eaec!important;white-space: nowrap; text-overflow: ellipsis;}
 .bootstrap-tree-table .treetable-tbody tr :first-child{border-left:0 !important}

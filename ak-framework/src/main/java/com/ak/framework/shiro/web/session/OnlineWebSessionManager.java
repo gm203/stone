@@ -12,8 +12,6 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.DefaultSessionKey;
 import org.apache.shiro.session.mgt.SessionKey;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.utils.spring.SpringUtils;
@@ -21,13 +19,15 @@ import com.ak.framework.shiro.session.OnlineSession;
 import com.ak.system.domain.SysUserOnline;
 import com.ak.system.service.ISysUserOnlineService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 主要是在此如果会话的属性修改了 就标识下其修改了 然后方便 OnlineSessionDao同步
  * 
  * @author ak
  */
+@Log4j2
 public class OnlineWebSessionManager extends DefaultWebSessionManager {
-	private static final Logger log = LoggerFactory.getLogger(OnlineWebSessionManager.class);
 
 	@Override
 	public void setAttribute(SessionKey sessionKey, Object attributeKey, Object value) throws InvalidSessionException {

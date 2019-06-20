@@ -21,12 +21,12 @@
 		</dependency>
 
 		<!-- SpringBoot Web容器 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+	     <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-		<!-- SpringBoot 拦截器 -->
+        <!-- SpringBoot 拦截器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -34,10 +34,10 @@
 
 		<!--阿里数据库连接池 -->
 		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-		</dependency>
-
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+		
 		<!--验证码 -->
 		<dependency>
 			<groupId>com.github.penggle</groupId>
@@ -52,9 +52,9 @@
 
 		<!-- Shiro使用Srping框架 -->
 		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring-boot-starter</artifactId>
-		</dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
 
 		<!-- Shiro使用EhCache缓存框架 -->
 		<dependency>
@@ -104,9 +104,19 @@
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-redis</artifactId>
-			<version>1.4.7.RELEASE</version>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+		
+		<dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.21</version>
+        </dependency>
 	</dependencies>
 
 </project>
