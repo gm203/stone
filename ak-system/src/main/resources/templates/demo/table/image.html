@@ -41,12 +41,12 @@
 				    title: '图片',
 				    formatter: function(value, row, index) {
 				    	// 图片自由组合
-				    	// 'img/profile.jpg' - 'http://ruoyi.vip/' 变成 http://ruoyi.vip/img/profile.jpg
-				    	// 'ruoyi.png' - 'http://ruoyi.vip/' 变成 http://ruoyi.vip/ruoyi.jpg
+				    	// 'img/profile.jpg' - 'http://ak.vip/' 变成 http://ak.vip/img/profile.jpg
+				    	// 'ak.png' - 'http://ak.vip/' 变成 http://ak.vip/ak.jpg
 				    	if(index % 2 == 0){
-				    		return $.table.imageView('img/profile.jpg', 'http://ruoyi.vip/');
+				    		return $.table.imageView('img/profile.jpg', 'http://ak.vip/');
 				    	}else {
-				    		return $.table.imageView('ruoyi.png', 'http://ruoyi.vip/');
+				    		return $.table.imageView('ak.png', 'http://ak.vip/');
 				    	}
 				    }
 				},
