@@ -1,15 +1,14 @@
 package com.ak.system.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ak.common.constant.UserConstants;
 import com.ak.common.core.text.Convert;
 import com.ak.common.utils.StringUtils;
 import com.ak.system.domain.SysConfig;
 import com.ak.system.mapper.SysConfigMapper;
+import com.ak.system.service.ISysConfigService;
 
 /**
  * 参数配置 服务层实现

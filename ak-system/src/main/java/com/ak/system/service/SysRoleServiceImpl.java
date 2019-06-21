@@ -5,11 +5,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.ak.common.annotation.DataScope;
 import com.ak.common.constant.UserConstants;
 import com.ak.common.core.text.Convert;
@@ -23,6 +21,7 @@ import com.ak.system.mapper.SysRoleDeptMapper;
 import com.ak.system.mapper.SysRoleMapper;
 import com.ak.system.mapper.SysRoleMenuMapper;
 import com.ak.system.mapper.SysUserRoleMapper;
+import com.ak.system.service.ISysRoleService;
 
 /**
  * 角色 业务层处理
