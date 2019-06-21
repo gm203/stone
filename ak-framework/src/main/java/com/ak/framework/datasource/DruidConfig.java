@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import com.ak.framework.config.properties.DruidProperties;
+import com.ak.framework.datasource.properties.DruidProperties;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties;
@@ -39,23 +39,10 @@ public class DruidConfig {
 		return druidProperties.dataSource(dataSource);
 	}
 
-	/*
-	 * @Bean
-	 * 
-	 * @ConfigurationProperties("spring.datasource.druid.slave")
-	 * 
-	 * @ConditionalOnProperty(prefix = "spring.datasource.druid.slave", name =
-	 * "enabled", havingValue = "true") public DataSource
-	 * slaveDataSource(DruidProperties druidProperties) { DruidDataSource dataSource
-	 * = DruidDataSourceBuilder.create().build(); return
-	 * druidProperties.dataSource(dataSource); }
-	 */
-
 	@Bean(name = "dynamicDataSource")
 	@Primary
-	public DynamicDataSource dynamicDataSource(DataSource defaultDataSource/* , DataSource targetDataSources */) {
+	public DynamicDataSource dynamicDataSource(DataSource defaultDataSource) {
 		Map<Object, Object> targetDataSources = new HashMap<>();
-//		System.out.println(DataSourceType.MASTER.name());
 		targetDataSources.put("targetDataSources", defaultDataSource);
 		return new DynamicDataSource(defaultDataSource, targetDataSources);
 	}
@@ -63,10 +50,9 @@ public class DruidConfig {
 	/**
 	 * 去除监控页面底部的广告
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	@ConditionalOnProperty(name = "spring.datasource.druid.statViewServlet.enabled", havingValue = "true")
-	public FilterRegistrationBean removeDruidFilterRegistrationBean(DruidStatProperties properties) {
+	public FilterRegistrationBean<Filter> removeDruidFilterRegistrationBean(DruidStatProperties properties) {
 		// 获取web监控页面的参数
 		DruidStatProperties.StatViewServlet config = properties.getStatViewServlet();
 		// 提取common.js的配置路径
@@ -97,7 +83,7 @@ public class DruidConfig {
 			public void destroy() {
 			}
 		};
-		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+		FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<Filter>();
 		registrationBean.setFilter(filter);
 		registrationBean.addUrlPatterns(commonJsPattern);
 		return registrationBean;

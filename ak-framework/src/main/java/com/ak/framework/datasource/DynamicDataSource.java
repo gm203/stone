@@ -17,11 +17,14 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import com.ak.common.exception.BusinessException;
 import com.alibaba.druid.pool.DruidDataSource;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 动态数据源
  * 
  * @author ak
  */
+@Log4j2
 final class DynamicDataSource extends AbstractRoutingDataSource implements ApplicationContextAware {
 	
 	private static final String DATA_SOURCES_NAME = "targetDataSources";
@@ -36,22 +39,23 @@ final class DynamicDataSource extends AbstractRoutingDataSource implements Appli
 	@Override
 	protected Object determineCurrentLookupKey() {
 		DataSourceBeanBuilder dataSourceBeanBuilder = DataSourceHolder.getDataSource();
-		System.out.println("====== determineCurrentLookupKey : " + dataSourceBeanBuilder + " ======");
 		if (dataSourceBeanBuilder == null) {
 			return null;
-		}
-		DataSourceBean dataSourceBean = new DataSourceBean(dataSourceBeanBuilder);
-		try {
-			Map<Object, Object> map = getTargetDataSources();
-			synchronized (map) {
-				if (!map.containsKey(dataSourceBean.getBeanName())) {
-					map.put(dataSourceBean.getBeanName(), createDataSource(dataSourceBean));
-					super.afterPropertiesSet();// 通知spring有bean更新
+		} else {
+			DataSourceBean dataSourceBean = new DataSourceBean(dataSourceBeanBuilder);
+			log.debug("dataSourceBean ->" + dataSourceBean.getBeanName());
+			try {
+				Map<Object, Object> map = getTargetDataSources();
+				synchronized (map) {
+					if (!map.containsKey(dataSourceBean.getBeanName())) {
+						map.put(dataSourceBean.getBeanName(), createDataSource(dataSourceBean));
+						super.afterPropertiesSet();// 通知spring有bean更新
+					}
 				}
+				return dataSourceBean.getBeanName();
+			} catch (NoSuchFieldException | IllegalAccessException e) {
+				throw new BusinessException(e.getMessage());
 			}
-			return dataSourceBean.getBeanName();
-		} catch (NoSuchFieldException | IllegalAccessException e) {
-			throw new BusinessException(e.getMessage());
 		}
 	}
 

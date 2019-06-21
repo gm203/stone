@@ -5,15 +5,16 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.ak.common.annotation.DataScope;
 import com.ak.common.constant.UserConstants;
 import com.ak.common.core.text.Convert;
 import com.ak.common.exception.BusinessException;
 import com.ak.common.utils.StringUtils;
-import com.ak.common.utils.spring.SpringUtils;
 import com.ak.system.domain.SysRole;
 import com.ak.system.domain.SysRoleDept;
 import com.ak.system.domain.SysRoleMenu;
@@ -22,7 +23,6 @@ import com.ak.system.mapper.SysRoleDeptMapper;
 import com.ak.system.mapper.SysRoleMapper;
 import com.ak.system.mapper.SysRoleMenuMapper;
 import com.ak.system.mapper.SysUserRoleMapper;
-import com.ak.system.service.ISysRoleService;
 
 /**
  * 角色 业务层处理
@@ -101,7 +101,7 @@ public class SysRoleServiceImpl implements ISysRoleService {
 	 */
 	@Override
 	public List<SysRole> selectRoleAll() {
-		return SpringUtils.getAopProxy(this).selectRoleList(new SysRole());
+		return roleMapper.selectRoleList(new SysRole());
 	}
 
 	/**
