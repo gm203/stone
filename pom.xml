@@ -111,7 +111,7 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger2</artifactId>
 				<version>${swagger.version}</version>
-				<!-- <exclusions>
+				<exclusions>
 				    <exclusion>
 				        <groupId>io.swagger</groupId>
 				        <artifactId>swagger-annotations</artifactId>
@@ -120,7 +120,7 @@
 				        <groupId>io.swagger</groupId>
 				        <artifactId>swagger-models</artifactId>
 				    </exclusion>
-				</exclusions> -->
+				</exclusions>
 			</dependency>
 			<!-- swagger2-UI-->
 			<dependency>
@@ -156,13 +156,6 @@
 				<artifactId>poi-ooxml</artifactId>
 				<version>${poi.version}</version>
 			</dependency>
-			
-			<!--velocity代码生成使用模板 -->
-	        <dependency>
-	            <groupId>org.apache.velocity</groupId>
-	            <artifactId>velocity</artifactId>
-	            <version>${velocity.version}</version>
-	        </dependency>
             
             <!-- 定时任务-->
 			<dependency>
