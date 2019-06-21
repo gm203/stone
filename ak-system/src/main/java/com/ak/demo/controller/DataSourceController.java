@@ -17,18 +17,18 @@ import com.ak.demo.serivce.UserService;
 public class DataSourceController {
 
 	@Resource
-    private DataSourceService dataSourceService;
-    
+	private DataSourceService dataSourceService;
+
 	@Resource
-    private UserService userService;
+	private UserService userService;
 
 	@RequestMapping("/testTransaction")
-    public void testTransaction(User user) {
-	    dataSourceService.testTransaction(user);
-    }
-    
+	public void testTransaction(User user) {
+		dataSourceService.testTransaction(user);
+	}
+
 	@RequestMapping("/testMultiDataSource")
-    public void testMultiDataSource(User user) {
-	    dataSourceService.testMultiDataSource(user);
-    }
+	public void testMultiDataSource(User user) {
+		dataSourceService.testMultiDataSource(user);
+	}
 }
