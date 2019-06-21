@@ -70,7 +70,7 @@ public class Global {
 	 * 获取项目版本
 	 */
 	public static String getVersion() {
-		return StringUtils.nvl(getConfig("ak.version"), "1.0.0");
+		return StringUtils.nvl(getConfig("ak.version"), "1.1.0");
 	}
 
 	/**
