@@ -3,7 +3,6 @@ package com.ak.framework.shiro.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.constant.UserConstants;

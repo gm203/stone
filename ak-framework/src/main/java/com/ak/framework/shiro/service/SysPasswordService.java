@@ -1,16 +1,13 @@
 package com.ak.framework.shiro.service;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
 import javax.annotation.PostConstruct;
-
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.exception.user.UserPasswordNotMatchException;

@@ -2,7 +2,6 @@ package com.ak.framework.shiro.realm;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

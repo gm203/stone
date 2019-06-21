@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import javax.servlet.Filter;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
@@ -23,7 +21,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.spring.SpringUtils;
 import com.ak.framework.shiro.realm.UserRealm;
@@ -36,7 +33,6 @@ import com.ak.framework.shiro.web.filter.online.OnlineSessionFilter;
 import com.ak.framework.shiro.web.filter.sync.SyncOnlineSessionFilter;
 import com.ak.framework.shiro.web.session.OnlineWebSessionManager;
 import com.ak.framework.shiro.web.session.SpringSessionValidationScheduler;
-
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 
 /**

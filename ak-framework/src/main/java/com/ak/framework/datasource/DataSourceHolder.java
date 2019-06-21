@@ -4,7 +4,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public final class DataSourceHolder {
-	
+
 	private static final ThreadLocal<DataSourceBeanBuilder> threadLocal = new ThreadLocal<DataSourceBeanBuilder>();
 
 	static DataSourceBeanBuilder getDataSource() {

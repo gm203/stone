@@ -8,8 +8,8 @@ final class DataSourceBean {
 	private final String password;
 	private final String validationQuery;
 	private final boolean testOnBorrow;
-	
-	// Builder模式   既能保证像telescoping constructor模式那样的安全性，也能保证像JavaBeans模式那么好的的可读性
+
+	// Builder模式 既能保证像telescoping constructor模式那样的安全性，也能保证像JavaBeans模式那么好的的可读性
 	public DataSourceBean(DataSourceBeanBuilder beanBuilder) {
 		this.beanName = beanBuilder.getBeanName();
 		this.driverClassName = beanBuilder.getDriverClassName();

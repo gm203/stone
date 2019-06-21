@@ -31,8 +31,8 @@ import com.alibaba.druid.util.Utils;
  */
 @Configuration
 public class DruidConfig {
-	
-	@Bean(name="defaultDataSource")
+
+	@Bean(name = "defaultDataSource")
 	@ConfigurationProperties("spring.datasource")
 	public DataSource defaultDataSource(DruidProperties druidProperties) {
 		DruidDataSource dataSource = DruidDataSourceBuilder.create().build();
@@ -62,7 +62,9 @@ public class DruidConfig {
 		// 创建filter进行过滤
 		Filter filter = new Filter() {
 			@Override
-			public void init(javax.servlet.FilterConfig filterConfig) throws ServletException {}
+			public void init(javax.servlet.FilterConfig filterConfig) throws ServletException {
+			}
+
 			@Override
 			public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 					throws IOException, ServletException {
@@ -76,8 +78,10 @@ public class DruidConfig {
 				text = text.replaceAll("powered.*?shrek.wang</a>", "");
 				response.getWriter().write(text);
 			}
+
 			@Override
-			public void destroy() {}
+			public void destroy() {
+			}
 		};
 		FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<Filter>();
 		registrationBean.setFilter(filter);

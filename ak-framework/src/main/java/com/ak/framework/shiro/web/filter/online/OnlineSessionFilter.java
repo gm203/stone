@@ -1,17 +1,14 @@
 package com.ak.framework.shiro.web.filter.online;
 
 import java.io.IOException;
-
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.enums.OnlineStatus;
 import com.ak.framework.shiro.session.OnlineSession;

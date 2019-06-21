@@ -5,6 +5,7 @@ import java.util.Map;
 import com.ak.common.exception.BusinessException;
 
 import lombok.extern.log4j.Log4j2;
+
 @Log4j2
 public class DataSourceBeanBuilder {
 	private static final String URL_FORMATTER = "%s%s:%s%s%s";
@@ -19,7 +20,7 @@ public class DataSourceBeanBuilder {
 	private boolean testOnBorrow = true;
 
 	public DataSourceBeanBuilder(Map<String, String> dataSource) {
-		this.beanName = dataSource.get("datasource_name");//唯一、主键
+		this.beanName = dataSource.get("datasource_name");// 唯一、主键
 		this.databaseIp = dataSource.get("database_ip");
 		this.databasePort = dataSource.get("database_port");
 		this.driverClassName = dataSource.get("database_driver_class_name");
@@ -60,11 +61,14 @@ public class DataSourceBeanBuilder {
 
 	public String getUrl() {
 		if (driverClassName.contains("oracle")) {
-			String url = String.format(URL_FORMATTER, "jdbc:oracle:thin:@", this.databaseIp, this.databasePort, ":", this.databaseName);
+			String url = String.format(URL_FORMATTER, "jdbc:oracle:thin:@", this.databaseIp, this.databasePort, ":",
+					this.databaseName);
 			log.info(url);
 			return url;
 		} else if (driverClassName.contains("mysql")) {
-			String url =  String.format(URL_FORMATTER, "jdbc:mysql://", this.databaseIp, this.databasePort, "/", this.databaseName) + "?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true";
+			String url = String.format(URL_FORMATTER, "jdbc:mysql://", this.databaseIp, this.databasePort, "/",
+					this.databaseName)
+					+ "?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true";
 			log.info(url);
 			return url;
 		} else {

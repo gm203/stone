@@ -3,7 +3,6 @@ package com.ak.framework.manager;
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
 import com.ak.common.utils.Threads;
 import com.ak.common.utils.spring.SpringUtils;
 
@@ -26,7 +25,8 @@ public class AsyncManager {
 	/**
 	 * 单例模式
 	 */
-	private AsyncManager() {}
+	private AsyncManager() {
+	}
 
 	private static AsyncManager me = new AsyncManager();
 

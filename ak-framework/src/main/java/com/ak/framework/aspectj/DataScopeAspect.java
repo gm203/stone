@@ -1,7 +1,6 @@
 package com.ak.framework.aspectj;
 
 import java.lang.reflect.Method;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,7 +8,6 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-
 import com.ak.common.annotation.DataScope;
 import com.ak.common.core.domain.BaseEntity;
 import com.ak.common.utils.StringUtils;

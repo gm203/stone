@@ -2,7 +2,6 @@ package com.ak.framework.aspectj;
 
 import java.lang.reflect.Method;
 import java.util.Map;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -13,7 +12,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 import com.ak.common.annotation.Log;
 import com.ak.common.enums.BusinessStatus;
 import com.ak.common.json.JSON;
