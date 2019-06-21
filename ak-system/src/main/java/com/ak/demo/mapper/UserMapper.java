@@ -14,23 +14,23 @@ import com.ak.demo.domain.User;
 public interface UserMapper {
 
     @Select({
-            "select * from user"
+            "select * from test_user"
     })
     List<User> listAll();
 
     @Insert({
-            "insert into user(account, username, password, role, gmt_create, gmt_modified) values(#{username},#{username}, #{password}, 1, now(), now())"
+            "insert into test_user values(#{username},#{username}, #{password})"
     })
-    int insert(User user);
+    Integer insert(User user);
 
     @Delete({
-            "delete from user where id = #{userId}"
+            "delete from test_user where account = #{account}"
     })
-    int remove(Integer userId);
+    Integer remove(Integer userId);
 
     @Update({
-            "update user set username = #{username}, password = #{password} where id = #{id}"
+            "update test_user set username = #{username}, password = #{password} where account = #{account}"
     })
-    int update(User user);
+    Integer update(User user);
 
 }

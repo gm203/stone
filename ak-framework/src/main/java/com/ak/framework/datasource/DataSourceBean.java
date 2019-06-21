@@ -14,9 +14,9 @@ final class DataSourceBean {
 		this.beanName = beanBuilder.getBeanName();
 		this.driverClassName = beanBuilder.getDriverClassName();
 		this.url = beanBuilder.getUrl();
+		this.username = beanBuilder.getUsername();
 		this.password = beanBuilder.getPassword();
 		this.testOnBorrow = beanBuilder.isTestOnBorrow();
-		this.username = beanBuilder.getUsername();
 		this.validationQuery = beanBuilder.getValidationQuery();
 	}
 

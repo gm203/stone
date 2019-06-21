@@ -37,7 +37,6 @@ public class DataSourceServiceImpl implements DataSourceService {
             throw new BusinessException("主库新增失败");
         }
         DataSourceHolder.clearDataSource();
-        System.out.println("=========="+dataSourceDao.queryDatasource("testbackup").get("datasource_name"));
         
         //再向起他数据源插入
         /*List<DataSourceDO> dataSourceDOList = this.dataSourceDao.query();
@@ -50,22 +49,37 @@ public class DataSourceServiceImpl implements DataSourceService {
             DataSourceHolder.clearDataSource();
         }*/
         
-        // 向用户库插入业务数据     sct_workflow 为当前登陆用户对应的
-        DataSourceBeanBuilder builder1 = new DataSourceBeanBuilder(this.dataSourceDao.queryByDatasourceName("testbackup"));
-        DataSourceHolder.setDataSource(builder1);
-        if (userDao.insert(user) < 0) {
-            throw new BusinessException("testbackup新增失败");
-        }
-        DataSourceHolder.clearDataSource();
-        
-        Map<String, String> dataSourceABC = this.dataSourceDao.queryByDatasourceName("abc");
-	        if (dataSourceABC != null) {
-	        DataSourceBeanBuilder builder = new DataSourceBeanBuilder(dataSourceABC);
+        Map<String, String> dataSourceTest = this.dataSourceDao.queryByDatasourceName("test");
+	    if (dataSourceTest != null) {
+	        DataSourceBeanBuilder builder = new DataSourceBeanBuilder(dataSourceTest);
 	        DataSourceHolder.setDataSource(builder);
 	        if (userDao.insert(user) < 0) {
 	            throw new BusinessException("abc新增失败");
 	        }
 	        DataSourceHolder.clearDataSource();
+        }
+	    
+	    Map<String, String> dataSourceTestBak = this.dataSourceDao.queryByDatasourceName("testbackup");
+	    if (dataSourceTestBak != null) {
+	    	 DataSourceBeanBuilder builder = new DataSourceBeanBuilder(dataSourceTestBak);
+	         DataSourceHolder.setDataSource(builder);
+	         if (userDao.insert(user) < 0) {
+	             throw new BusinessException("testbackup新增失败");
+	         }
+	         DataSourceHolder.clearDataSource();
+	    }
+       
+	    
+	    Map<String, String> dataSourceAbc = this.dataSourceDao.queryByDatasourceName("abc");
+	    if (dataSourceAbc != null) {
+	    	 DataSourceBeanBuilder builder = new DataSourceBeanBuilder(dataSourceAbc);
+	         DataSourceHolder.setDataSource(builder);
+	         userDao.insert(user);
+	         DataSourceHolder.clearDataSource();
+	    }
+        
+	    if (userDao.insert(user) < 0) {
+            throw new BusinessException("主库新增失败");
         }
 		return false;
 	}
