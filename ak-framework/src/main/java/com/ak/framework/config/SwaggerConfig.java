@@ -46,9 +46,9 @@ public class SwaggerConfig {
 		// 用ApiInfoBuilder进行定制
 		return new ApiInfoBuilder()
 				// 设置标题
-				.title("标题：AK后台管理系统_接口文档")
+				.title("AK RESETful API")
 				// 描述
-				.description("描述：用于管理项目对外的接口")
+				//.description("项目对外的接口")
 				// 作者信息
 				.contact(new Contact(Global.getName(), null, null))
 				// 版本
