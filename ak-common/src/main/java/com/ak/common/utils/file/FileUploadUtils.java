@@ -5,8 +5,7 @@ import java.io.IOException;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
 import com.ak.common.config.Global;
-import com.ak.common.exception.file.FileNameLengthLimitExceededException;
-import com.ak.common.exception.file.FileSizeLimitExceededException;
+import com.ak.common.exception.file.FileException;
 import com.ak.common.exception.file.InvalidExtensionException;
 import com.ak.common.utils.DateUtils;
 import com.ak.common.utils.StringUtils;
@@ -87,11 +86,10 @@ public class FileUploadUtils {
 	 * @throws InvalidExtensionException            文件校验异常
 	 */
 	public static final String upload(String baseDir, MultipartFile file, String[] allowedExtension)
-			throws FileSizeLimitExceededException, IOException, FileNameLengthLimitExceededException,
-			InvalidExtensionException {
+			throws FileException, IOException, InvalidExtensionException {
 		int fileNamelength = file.getOriginalFilename().length();
 		if (fileNamelength > FileUploadUtils.DEFAULT_FILE_NAME_LENGTH) {
-			throw new FileNameLengthLimitExceededException(FileUploadUtils.DEFAULT_FILE_NAME_LENGTH);
+			throw new FileException("upload.filename.exceed.length", new Object[] { FileUploadUtils.DEFAULT_FILE_NAME_LENGTH });
 		}
 
 		assertAllowed(file, allowedExtension);
@@ -143,10 +141,10 @@ public class FileUploadUtils {
 	 * @throws InvalidExtensionException
 	 */
 	public static final void assertAllowed(MultipartFile file, String[] allowedExtension)
-			throws FileSizeLimitExceededException, InvalidExtensionException {
+			throws FileException, InvalidExtensionException {
 		long size = file.getSize();
 		if (DEFAULT_MAX_SIZE != -1 && size > DEFAULT_MAX_SIZE) {
-			throw new FileSizeLimitExceededException(DEFAULT_MAX_SIZE / 1024 / 1024);
+			throw new FileException("upload.exceed.maxSize", new Object[] { DEFAULT_MAX_SIZE / 1024 / 1024 });
 		}
 
 		String filename = file.getOriginalFilename();

@@ -1,17 +1,19 @@
 package com.ak.framework.shiro.service;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.annotation.PostConstruct;
+
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ShiroConstants;
-import com.ak.common.exception.user.UserPasswordNotMatchException;
-import com.ak.common.exception.user.UserPasswordRetryLimitExceedException;
+import com.ak.common.exception.user.UserException;
 import com.ak.common.utils.MessageUtils;
 import com.ak.framework.manager.AsyncManager;
 import com.ak.framework.manager.factory.AsyncFactory;
@@ -49,14 +51,14 @@ public class SysPasswordService {
 		if (retryCount.incrementAndGet() > Integer.valueOf(maxRetryCount).intValue()) {
 			AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginName, Constants.LOGIN_FAIL,
 					MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount)));
-			throw new UserPasswordRetryLimitExceedException(Integer.valueOf(maxRetryCount).intValue());
+			throw new UserException("user.password.retry.limit.exceed", new Object[] { Integer.valueOf(maxRetryCount).intValue() });
 		}
 
 		if (!matches(user, password)) {
 			AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginName, Constants.LOGIN_FAIL,
 					MessageUtils.message("user.password.retry.limit.count", retryCount)));
 			loginRecordCache.put(loginName, retryCount);
-			throw new UserPasswordNotMatchException();
+			throw new UserException("user.password.not.match", null);
 		} else {
 			clearLoginRecordCache(loginName);
 		}
