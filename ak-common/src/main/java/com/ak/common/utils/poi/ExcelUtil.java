@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.util.HSSFColor.HSSFColorPredefined;
@@ -37,8 +38,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFDataValidation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.annotation.Excel;
 import com.ak.common.annotation.Excel.Type;
 import com.ak.common.annotation.Excels;
@@ -50,13 +50,15 @@ import com.ak.common.utils.DateUtils;
 import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.reflect.ReflectUtils;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * Excel相关处理
  * 
  * @author ak
  */
+@Log4j2
 public class ExcelUtil<T> {
-	private static final Logger log = LoggerFactory.getLogger(ExcelUtil.class);
 
 	/**
 	 * Excel sheet最大行数，默认65536

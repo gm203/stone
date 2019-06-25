@@ -13,8 +13,8 @@ import lombok.Setter;
  */
 public class TableDataInfo implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 189155859216688116L;
+
 	/** 总记录数 */
 	@Getter
 	@Setter

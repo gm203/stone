@@ -1,18 +1,20 @@
 package com.ak.framework.web.exception;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.authz.AuthorizationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.exception.BusinessException;
 import com.ak.common.exception.DemoModeException;
 import com.ak.common.utils.ServletUtils;
 import com.ak.common.utils.security.PermissionUtils;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 全局异常处理器
@@ -20,8 +22,8 @@ import com.ak.common.utils.security.PermissionUtils;
  * @author ak
  */
 @RestControllerAdvice
+@Log4j2
 public class GlobalExceptionHandler {
-	private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
 	/**
 	 * 权限校验失败 如果请求为ajax返回json，普通请求跳转页面

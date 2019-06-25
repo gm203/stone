@@ -2,14 +2,15 @@ package com.ak.framework.shiro.web.filter;
 
 import java.io.Serializable;
 import java.util.Deque;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.SessionException;
 import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ShiroConstants;
 import com.ak.common.utils.MessageUtils;
@@ -19,13 +20,15 @@ import com.ak.framework.manager.factory.AsyncFactory;
 import com.ak.framework.util.ShiroUtils;
 import com.ak.system.domain.SysUser;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 退出过滤器
  * 
  * @author ak
  */
+@Log4j2
 public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter {
-	private static final Logger log = LoggerFactory.getLogger(LogoutFilter.class);
 
 	/**
 	 * 退出后重定向的地址

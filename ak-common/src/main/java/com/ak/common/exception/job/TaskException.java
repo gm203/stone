@@ -6,8 +6,8 @@ package com.ak.common.exception.job;
  * @author ak
  */
 public class TaskException extends Exception {
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = 8702701806151614488L;
 	private Code code;
 
 	public TaskException(String msg, Code code) {

@@ -5,16 +5,16 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 线程相关工具类.
  * 
  * @author ak
  */
+@Log4j2
 public class Threads {
-	private static final Logger logger = LoggerFactory.getLogger(Threads.class);
 
 	/**
 	 * sleep等待,单位为毫秒
@@ -38,7 +38,7 @@ public class Threads {
 				if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
 					pool.shutdownNow();
 					if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
-						logger.info("Pool did not terminate");
+						log.info("Pool did not terminate");
 					}
 				}
 			} catch (InterruptedException ie) {
@@ -67,7 +67,7 @@ public class Threads {
 			}
 		}
 		if (t != null) {
-			logger.error(t.getMessage(), t);
+			log.error(t.getMessage(), t);
 		}
 	}
 }

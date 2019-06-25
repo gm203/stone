@@ -1,19 +1,19 @@
 package com.ak.common.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.ak.common.config.Global;
 import com.ak.common.json.JSON;
 import com.ak.common.json.JSONObject;
 import com.ak.common.utils.http.HttpUtils;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 获取地址类
  * 
  * @author ak
  */
+@Log4j2
 public class AddressUtils {
-	private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
 
 	public static final String IP_URL = "http://ip.taobao.com/service/getIpInfo.php";
 

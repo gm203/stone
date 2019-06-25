@@ -17,7 +17,7 @@ import com.ak.common.utils.StringUtils;
  * @author ak
  */
 public class JSONObject extends LinkedHashMap<String, Object> {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -3060309298947356266L;
 	private static final Pattern arrayNamePattern = Pattern.compile("(\\w+)((\\[\\d+\\])+)");
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 

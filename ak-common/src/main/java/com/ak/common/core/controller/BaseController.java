@@ -3,15 +3,14 @@ package com.ak.common.core.controller;
 import java.beans.PropertyEditorSupport;
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.core.domain.AjaxResult.Type;
 import com.ak.common.core.page.PageDomain;
@@ -21,6 +20,8 @@ import com.ak.common.utils.DateUtils;
 import com.ak.common.utils.ServletUtils;
 import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.sql.SqlUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 /**
  * web层通用数据处理
@@ -28,7 +29,6 @@ import com.ak.common.utils.sql.SqlUtil;
  * @author ak
  */
 public class BaseController {
-	protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
 	/**
 	 * 将前台传递过来的日期格式的字符串，自动转化为Date类型

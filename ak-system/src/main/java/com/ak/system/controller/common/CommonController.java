@@ -2,14 +2,14 @@ package com.ak.system.controller.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.ak.common.config.Global;
 import com.ak.common.config.ServerConfig;
 import com.ak.common.core.domain.AjaxResult;
@@ -17,14 +17,16 @@ import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.file.FileUploadUtils;
 import com.ak.common.utils.file.FileUtils;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 通用请求处理
  * 
  * @author ak
  */
 @Controller
+@Log4j2
 public class CommonController {
-	private static final Logger log = LoggerFactory.getLogger(CommonController.class);
 
 	/**
 	 * 文件上传路径

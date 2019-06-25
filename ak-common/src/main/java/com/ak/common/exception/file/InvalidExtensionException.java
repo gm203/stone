@@ -9,8 +9,8 @@ import org.apache.commons.fileupload.FileUploadException;
  * @author ak
  */
 public class InvalidExtensionException extends FileUploadException {
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = 6352843174705638545L;
 	private String[] allowedExtension;
 	private String extension;
 	private String filename;

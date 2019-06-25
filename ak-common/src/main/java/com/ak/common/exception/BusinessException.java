@@ -6,8 +6,8 @@ package com.ak.common.exception;
  * @author ak
  */
 public class BusinessException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = -1024545423400575343L;
 	protected final String message;
 
 	public BusinessException(String message) {

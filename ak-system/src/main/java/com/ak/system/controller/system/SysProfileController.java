@@ -1,7 +1,5 @@
 package com.ak.system.controller.system;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.ak.common.annotation.Log;
 import com.ak.common.config.Global;
 import com.ak.common.core.controller.BaseController;
@@ -23,6 +22,8 @@ import com.ak.framework.util.ShiroUtils;
 import com.ak.system.domain.SysUser;
 import com.ak.system.service.ISysUserService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 个人信息 业务处理
  * 
@@ -30,8 +31,8 @@ import com.ak.system.service.ISysUserService;
  */
 @Controller
 @RequestMapping("/system/user/profile")
+@Log4j2
 public class SysProfileController extends BaseController {
-	private static final Logger log = LoggerFactory.getLogger(SysProfileController.class);
 
 	private String prefix = "system/user/profile";
 

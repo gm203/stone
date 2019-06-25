@@ -2,11 +2,11 @@ package com.ak.system.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.ak.common.annotation.DataScope;
 import com.ak.common.constant.UserConstants;
 import com.ak.common.core.text.Convert;
@@ -23,8 +23,8 @@ import com.ak.system.mapper.SysRoleMapper;
 import com.ak.system.mapper.SysUserMapper;
 import com.ak.system.mapper.SysUserPostMapper;
 import com.ak.system.mapper.SysUserRoleMapper;
-import com.ak.system.service.ISysConfigService;
-import com.ak.system.service.ISysUserService;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 用户 业务层处理
@@ -32,8 +32,8 @@ import com.ak.system.service.ISysUserService;
  * @author ak
  */
 @Service
+@Log4j2
 public class SysUserServiceImpl implements ISysUserService {
-	private static final Logger log = LoggerFactory.getLogger(SysUserServiceImpl.class);
 
 	@Autowired
 	private SysUserMapper userMapper;

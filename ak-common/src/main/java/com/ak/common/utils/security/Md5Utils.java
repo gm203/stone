@@ -1,16 +1,16 @@
 package com.ak.common.utils.security;
 
 import java.security.MessageDigest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * Md5加密方法
  * 
  * @author ak
  */
+@Log4j2
 public class Md5Utils {
-	private static final Logger log = LoggerFactory.getLogger(Md5Utils.class);
 
 	private static byte[] md5(String s) {
 		MessageDigest algorithm;

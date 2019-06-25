@@ -11,7 +11,8 @@ import lombok.Setter;
  * @author ak
  */
 public class Ztree implements Serializable {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 5488785099339809677L;
 
 	/** 节点ID */
 	@Getter

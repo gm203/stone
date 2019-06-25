@@ -2,6 +2,7 @@ package com.ak.framework.shiro.realm;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -16,8 +17,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ak.common.exception.user.CaptchaException;
@@ -32,13 +31,15 @@ import com.ak.system.domain.SysUser;
 import com.ak.system.service.ISysMenuService;
 import com.ak.system.service.ISysRoleService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 自定义Realm 处理登录 权限
  * 
  * @author ak
  */
+@Log4j2
 public class UserRealm extends AuthorizingRealm {
-	private static final Logger log = LoggerFactory.getLogger(UserRealm.class);
 
 	@Autowired
 	private ISysMenuService menuService;

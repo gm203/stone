@@ -9,7 +9,8 @@ import com.ak.common.utils.StringUtils;
  * @author ak
  */
 public class BaseException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 4333868050511786948L;
 
 	/**
 	 * 所属模块

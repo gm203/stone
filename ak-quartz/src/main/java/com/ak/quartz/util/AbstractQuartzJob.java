@@ -1,11 +1,11 @@
 package com.ak.quartz.util;
 
 import java.util.Date;
+
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.Constants;
 import com.ak.common.constant.ScheduleConstants;
 import com.ak.common.utils.ExceptionUtil;
@@ -16,13 +16,15 @@ import com.ak.quartz.domain.SysJob;
 import com.ak.quartz.domain.SysJobLog;
 import com.ak.quartz.service.ISysJobLogService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * 抽象quartz调用
  *
  * @author ak
  */
+@Log4j2
 public abstract class AbstractQuartzJob implements Job {
-	private static final Logger log = LoggerFactory.getLogger(AbstractQuartzJob.class);
 
 	/**
 	 * 线程本地变量

@@ -11,12 +11,13 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.ScheduleConstants;
 import com.ak.common.exception.job.TaskException;
 import com.ak.common.exception.job.TaskException.Code;
 import com.ak.quartz.domain.SysJob;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 定时任务工具类
@@ -24,8 +25,8 @@ import com.ak.quartz.domain.SysJob;
  * @author ak
  *
  */
+@Log4j2
 public class ScheduleUtils {
-	private static final Logger log = LoggerFactory.getLogger(ScheduleUtils.class);
 
 	/**
 	 * 得到quartz任务类

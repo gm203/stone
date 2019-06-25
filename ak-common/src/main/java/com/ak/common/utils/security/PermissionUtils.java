@@ -3,21 +3,23 @@ package com.ak.common.utils.security;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.constant.PermissionConstants;
 import com.ak.common.utils.MessageUtils;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * permission 工具类
  * 
  * @author ak
  */
+@Log4j2
 public class PermissionUtils {
-	private static final Logger log = LoggerFactory.getLogger(PermissionUtils.class);
 
 	/**
 	 * 查看数据的权限

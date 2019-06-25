@@ -3,18 +3,19 @@ package com.ak.common.config;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.ak.common.utils.StringUtils;
 import com.ak.common.utils.YamlUtil;
+
+import lombok.extern.log4j.Log4j2;
 
 /**
  * 全局配置类
  * 
  * @author ak
  */
+@Log4j2
 public class Global {
-	private static final Logger log = LoggerFactory.getLogger(Global.class);
 
 	private static String NAME = "application.yml";
 
