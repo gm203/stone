@@ -17,7 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysLogininfor extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -2178208230420488060L;
 
 	/** ID */
 	@Excel(name = "序号")

@@ -8,7 +8,8 @@ import com.ak.common.core.domain.BaseEntity;
 import com.ak.common.utils.DateUtils;
 
 public class UserOperateModel extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 3131749242327919997L;
 
 	private int userId;
 

@@ -6,7 +6,8 @@ package com.ak.common.exception.user;
  * @author ak
  */
 public class RoleBlockedException extends UserException {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 3649777079579088255L;
 
 	public RoleBlockedException() {
 		super("role.blocked", null);

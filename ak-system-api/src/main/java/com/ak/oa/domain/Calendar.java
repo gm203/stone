@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class Calendar extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -222239229355504392L;
 	
 	@Excel(name = "事件标题")
 	private String title; // 事件标题

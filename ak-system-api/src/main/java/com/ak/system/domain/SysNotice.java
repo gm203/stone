@@ -15,7 +15,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysNotice extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 6986279363411646127L;
 
 	/** 公告ID */
 	private Long noticeId;

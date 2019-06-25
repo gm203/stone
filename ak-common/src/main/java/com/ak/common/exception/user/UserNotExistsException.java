@@ -6,7 +6,8 @@ package com.ak.common.exception.user;
  * @author ak
  */
 public class UserNotExistsException extends UserException {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 8650527936180526037L;
 
 	public UserNotExistsException() {
 		super("user.not.exists", null);

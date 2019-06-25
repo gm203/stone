@@ -17,7 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysOperLog extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 6129193033851678155L;
 
 	/** 日志主键 */
 	@Excel(name = "操作序号")

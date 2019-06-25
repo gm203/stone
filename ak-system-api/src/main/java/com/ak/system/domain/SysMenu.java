@@ -18,7 +18,8 @@ import java.util.List;
 @Getter
 @Setter
 public class SysMenu extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 5969313621422744431L;
 
 	/** 菜单ID */
 	private Long menuId;

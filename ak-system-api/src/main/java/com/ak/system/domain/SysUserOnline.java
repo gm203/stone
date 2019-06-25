@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysUserOnline extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 1163161014207478169L;
 
 	/** 用户会话id */
 	private String sessionId;

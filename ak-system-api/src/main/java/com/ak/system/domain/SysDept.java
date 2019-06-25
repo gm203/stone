@@ -15,7 +15,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysDept extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -3715858987682797865L;
 
 	/** 部门ID */
 	private Long deptId;

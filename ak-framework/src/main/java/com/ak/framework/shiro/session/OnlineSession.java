@@ -9,7 +9,8 @@ import com.ak.common.enums.OnlineStatus;
  * @author ak
  */
 public class OnlineSession extends SimpleSession {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 1179086148251069328L;
 
 	/** 用户ID */
 	private Long userId;

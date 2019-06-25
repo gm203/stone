@@ -6,7 +6,8 @@ package com.ak.common.exception.user;
  * @author ak
  */
 public class UserPasswordNotMatchException extends UserException {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 3468552332933489632L;
 
 	public UserPasswordNotMatchException() {
 		super("user.password.not.match", null);

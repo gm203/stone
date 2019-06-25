@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysDictType extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -7996603799783372902L;
 
 	/** 字典主键 */
 	@Excel(name = "字典主键")

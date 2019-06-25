@@ -20,7 +20,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysJob extends BaseEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -2669636896626294984L;
 
 	/** 任务ID */
 	@Excel(name = "任务序号")

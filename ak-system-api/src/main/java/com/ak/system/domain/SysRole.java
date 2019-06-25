@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysRole extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 1468093945852098602L;
 
 	/** 角色ID */
 	@Excel(name = "角色序号")

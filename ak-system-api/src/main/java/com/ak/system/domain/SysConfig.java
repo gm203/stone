@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysConfig extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = -2368843431498066452L;
 
 	/** 参数主键 */
 	@Excel(name = "参数主键")

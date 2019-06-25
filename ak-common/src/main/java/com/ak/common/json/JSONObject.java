@@ -25,7 +25,8 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * 数组结构。
 	 */
 	public static class JSONArray extends ArrayList<Object> {
-		private static final long serialVersionUID = 1L;
+
+		private static final long serialVersionUID = -3264517375693617202L;
 
 		public JSONArray() {
 			super();

@@ -16,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SysDictData extends BaseEntity {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 9066955398601803951L;
 
 	/** 字典编码 */
 	@Excel(name = "字典编码")
