@@ -1,9 +1,14 @@
 package com.ak.common.core.domain;
 
 import java.util.HashMap;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.ak.common.utils.StringUtils;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 操作消息提醒
@@ -42,15 +47,23 @@ public class AjaxResult extends HashMap<String, Object> {
 	}
 
 	/** 状态类型 */
+	@Getter
+	@Setter
 	private Type type;
 
 	/** 状态码 */
+	@Getter
+	@Setter
 	private int code;
 
 	/** 返回内容 */
+	@Getter
+	@Setter
 	private String msg;
 
 	/** 数据对象 */
+	@Getter
+	@Setter
 	private Object data;
 
 	/**
@@ -61,7 +74,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 初始化一个新创建的 AjaxResult 对象
-	 * 
 	 * @param type 状态类型
 	 * @param msg  返回内容
 	 */
@@ -72,7 +84,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 初始化一个新创建的 AjaxResult 对象
-	 * 
 	 * @param type 状态类型
 	 * @param msg  返回内容
 	 * @param data 数据对象
@@ -87,7 +98,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回成功消息
-	 * 
 	 * @return 成功消息
 	 */
 	public static AjaxResult success() {
@@ -96,7 +106,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回成功数据
-	 * 
 	 * @return 成功消息
 	 */
 	public static AjaxResult success(Object data) {
@@ -105,7 +114,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回成功消息
-	 * 
 	 * @param msg 返回内容
 	 * @return 成功消息
 	 */
@@ -115,7 +123,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回成功消息
-	 * 
 	 * @param msg  返回内容
 	 * @param data 数据对象
 	 * @return 成功消息
@@ -126,7 +133,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回警告消息
-	 * 
 	 * @param msg 返回内容
 	 * @return 警告消息
 	 */
@@ -136,7 +142,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回警告消息
-	 * 
 	 * @param msg  返回内容
 	 * @param data 数据对象
 	 * @return 警告消息
@@ -147,7 +152,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回错误消息
-	 * 
 	 * @return
 	 */
 	public static AjaxResult error() {
@@ -156,7 +160,6 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回错误消息
-	 * 
 	 * @param msg 返回内容
 	 * @return 警告消息
 	 */
@@ -166,45 +169,12 @@ public class AjaxResult extends HashMap<String, Object> {
 
 	/**
 	 * 返回错误消息
-	 * 
 	 * @param msg  返回内容
 	 * @param data 数据对象
 	 * @return 警告消息
 	 */
 	public static AjaxResult error(String msg, Object data) {
 		return new AjaxResult(Type.ERROR, msg, data);
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
-
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public Object getData() {
-		return data;
-	}
-
-	public void setData(Object data) {
-		this.data = data;
 	}
 
 	@Override
