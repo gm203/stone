@@ -42,3 +42,5 @@ nbdist/
 !*/build/*.html
 !*/build/*.xml
 /使用手册.docx
+/sql/datasource_meta.sql
+
