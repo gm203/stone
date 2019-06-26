@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ak.common.core.domain.AjaxResult;
 import com.ak.common.exception.BusinessException;
-import com.ak.common.exception.DemoModeException;
 import com.ak.common.utils.ServletUtils;
 import com.ak.common.utils.security.PermissionUtils;
 
@@ -81,13 +80,5 @@ public class GlobalExceptionHandler {
 			modelAndView.setViewName("error/business");
 			return modelAndView;
 		}
-	}
-
-	/**
-	 * 演示模式异常
-	 */
-	@ExceptionHandler(DemoModeException.class)
-	public AjaxResult demoModeException(DemoModeException e) {
-		return AjaxResult.error("演示模式，不允许操作");
 	}
 }
