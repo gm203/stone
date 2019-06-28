@@ -76,6 +76,7 @@ public @interface Excel {
 	/**
 	 * 定义类型枚举
 	 * @author dvean
+	 * @date 2019/06/26
 	 */
 	public enum Type {
 		ALL(0), EXPORT(1), IMPORT(2);

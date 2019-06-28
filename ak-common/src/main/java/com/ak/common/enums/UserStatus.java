@@ -2,7 +2,7 @@ package com.ak.common.enums;
 
 /**
  * 用户状态
- * 
+ * @date 2019/06/26
  * @author ak
  */
 public enum UserStatus {

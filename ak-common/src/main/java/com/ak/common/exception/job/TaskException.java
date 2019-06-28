@@ -22,7 +22,12 @@ public class TaskException extends Exception {
 	public Code getCode() {
 		return code;
 	}
-
+	
+	/**
+	 * 异常枚举
+	 * @author dvean
+	 * @date 2019/06/26
+	 */
 	public enum Code {
 		TASK_EXISTS, NO_TASK_EXISTS, TASK_ALREADY_STARTED, UNKNOWN, CONFIG_ERROR, TASK_NODE_NOT_AVAILABLE
 	}
