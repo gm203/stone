@@ -20,6 +20,9 @@ public class OnlineSession extends SimpleSession {
 
 	/** 部门名称 */
 	private String deptName;
+	
+	/** 用户头像 */
+	private String avatar;
 
 	/** 登录IP地址 */
 	private String host;
@@ -114,5 +117,13 @@ public class OnlineSession extends SimpleSession {
 	@Override
 	public Object removeAttribute(Object key) {
 		return super.removeAttribute(key);
+	}
+	
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 }
